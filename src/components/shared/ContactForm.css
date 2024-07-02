@@ -1,0 +1,15 @@
+label {
+    @apply block lowercase tracking-wide text-white text-[1.25rem] font-bold;
+}
+
+.errorMessage {
+    @apply text-rose-500;
+}
+
+input {
+    @apply block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded-rounded-3 py-3 px-4 mb-2 leading-tight focus:outline-none focus:bg-white;
+}
+
+textarea {
+    @apply block w-full bg-gray-200 text-gray-700 border border-gray-500 rounded-rounded-3 py-3 px-4 mb-2 leading-tight focus:outline-none focus:bg-white;
+}

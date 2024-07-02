@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nt-embed {
+    width: 100vw !important;
+    height: 0px !important;
+}
+
+body.mobile-menu-open {
+    overflow: hidden
+}
+

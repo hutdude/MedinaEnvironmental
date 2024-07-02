@@ -1,0 +1,46 @@
+.custom-gradient-1 {
+    @apply bg-gradient-to-b;
+    background: linear-gradient(180deg, rgba(3, 0, 55, 0.00) 16%, #030037 100%);
+}
+
+.custom-gradient-2{
+    @apply bg-gradient-to-b;
+    background: linear-gradient(180deg, #000 10%, rgba(255, 255, 255, 0) 40%);
+}
+
+h1 {
+    @apply font-bold text-4xl xl:text-5xl text-white text-center z-10;
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.scroll-container {
+overflow: hidden;
+width: 100%;
+}
+
+.scroll-marquee {
+    display: flex;
+    animation: scroll 30s linear infinite;
+    width: max-content; /* or a specific width that's at least 200% of the container */
+}
+
+/* 
+@media (max-width: 768px) { /* Tailwind's md breakpoint is 768px 
+    #main {
+        height: 100vh;
+        min-height: 600px;
+    }
+}
+ */
+
+ .personal-gradient {
+    background: linear-gradient(180deg, #030037 0%, #586C8E 25%, #ADD8E6 68%, #82A2BA 85%, #2E2E2E 100%);
+  }
+  
+  .object-position-center-left {
+    object-position: left center;
+}
