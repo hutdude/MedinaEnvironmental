@@ -23,7 +23,6 @@ export default function Navbar() {
   const MedinaDrop = 'https://medinaenvironmentalcompany.com/wp-content/uploads/2024/06/LogoNoBackgroundHighQuality.png'
 
   const { currentPage, setCurrentPage } = useContext(PageContext);
-  console.log(currentPage)
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuShown, setMobileMenuShown] = useState(false);

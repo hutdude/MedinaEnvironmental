@@ -1,0 +1,19 @@
+.blue-gradient {
+    @apply bg-gradient-to-b;
+    background: linear-gradient(241deg, #030037 28.67%, #030138 33.27%, #02063B 37.87%, #000D3F 42.47%, #001445 47.06%, #001B4E 51.66%, #002458 56.26%, #002F64 60.86%, #003C71 65.45%, #014B80 70.05%, #055D90 74.65%, #0E70A2 79.25%, #1C87B4 83.84%, #2EA0C6 88.44%, #43BBD9 93.04%, #5ED9EC 97.64%, #7DF9FF 102.23%);
+}
+
+.award-winning-gradient {
+    background: linear-gradient(236deg, #7DF9FF 19.44%, #78E5FF 23.94%, #73D2FF 28.44%, #6FC1FF 32.94%, #6BB2FE 37.45%, #68A4FE 41.95%, #6698FE 46.45%, #638EFE 50.95%, #6286FE 55.46%, #6180FE 59.96%, #607BFE 64.46%, #5F78FE 68.96%, #5E75FE 73.46%, #5E74FE 77.97%, #5E73FE 82.47%, #5E73FE 86.97%, #5E73FE 91.47%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.values-backdrop{
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 283px;
+    border: 0px solid #000;
+    background: rgba(174, 174, 174, 0.11);
+    box-shadow: 6px -7px 6.2px 0px rgba(0, 0, 0, 0.25);
+}

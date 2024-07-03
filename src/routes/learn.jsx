@@ -1,5 +1,6 @@
 import { PageContext } from "../main";
 import { useContext, useEffect } from "react";
+import IdukkiEmbed from "../components/learn/LinkedIn";
 
 
   export default function Learn() {
@@ -13,6 +14,8 @@ import { useContext, useEffect } from "react";
       <div>
         Learn Page
       </div>
+      
+      {/* <IdukkiEmbed /> */}
     </div>
   );
 }

@@ -5,7 +5,6 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    
     "fontSize": {
       "sm": "0.8125rem",
       "base": "1.25rem",
@@ -37,6 +36,11 @@ export default {
       "7": "50px",
     },
     extend: {
+      backgroundImage: {
+        'about-gradient': 'background: linear-gradient(252deg, #D9DAE9 1.49%, #FFF 48.99%);',
+        'Blue-Gradient': 'linear-gradient(241deg, #030037 28.67%, #030138 33.27%, #02063B 37.87%, #000D3F 42.47%, #001445 47.06%, #001B4E 51.66%, #002458 56.26%, #002F64 60.86%, #003C71 65.45%, #014B80 70.05%, #055D90 74.65%, #0E70A2 79.25%, #1C87B4 83.84%, #2EA0C6 88.44%, #43BBD9 93.04%, #5ED9EC 97.64%, #7DF9FF 102.23%));'
+
+      },
       boxShadow: {
         'pipe': '0px 4px 15px 2px rgba(0, 0, 0, 0.25)'
       },
@@ -50,6 +54,8 @@ export default {
       },
       gradientColorStops: {
         'personal-gradient': 'linear-gradient(180deg, #030037 0%, #586C8E 25%, #ADD8E6 68%, #82A2BA 85%, #2E2E2E 100%)',
+        'Blue-Gradient': 'linear-gradient(241deg, #030037 28.67%, #030138 33.27%, #02063B 37.87%, #000D3F 42.47%, #001445 47.06%, #001B4E 51.66%, #002458 56.26%, #002F64 60.86%, #003C71 65.45%, #014B80 70.05%, #055D90 74.65%, #0E70A2 79.25%, #1C87B4 83.84%, #2EA0C6 88.44%, #43BBD9 93.04%, #5ED9EC 97.64%, #7DF9FF 102.23%));',
+        
       },
       fontFamily: {
         sans: ['Outfit', 'sans-serif']
