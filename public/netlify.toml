@@ -7,6 +7,4 @@
   to = "/index.html"
   status = 200
   force = false
-  conditions = {PATH = ":path", VITE_API_BASE_URL = ":cdn_path"}
-  [redirects.headers]
-    X-Redirect = "false"
+  conditions = {PATH = ":path"}
