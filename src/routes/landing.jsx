@@ -16,7 +16,7 @@ import { PageContext } from "../main.jsx";
 function Marquee({children}) {
   return (
     <div className="scroll-container">
-      <div className="flex w-max">
+      <div className="flex w-max scroll-marquee">
         {children}
         {children}
         {children}
