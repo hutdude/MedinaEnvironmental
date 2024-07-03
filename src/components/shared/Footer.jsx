@@ -3,7 +3,8 @@ import { FaYoutube } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 
 
-const MedinaDrop = 'https://medinaenvironmentalcompany.com/wp-content/uploads/2024/06/LogoNoBackgroundHighQuality.png'
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
+const MedinaDrop = apiUrl + '/wp-content/uploads/2024/06/LogoNoBackgroundHighQuality.png'
 
 
 const socials = [

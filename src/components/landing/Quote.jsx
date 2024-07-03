@@ -2,7 +2,8 @@
 import { FaQuoteLeft } from "react-icons/fa";
 
 
-const Headshot1 = 'https://medinaenvironmentalcompany.com/wp-content/uploads/2024/01/Victor-Medina-Headshot.jpg'
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
+const Headshot1 = apiUrl + '/wp-content/uploads/2024/01/Victor-Medina-Headshot.jpg'
 const Quote = ({}) => {
     return(
         <div className='pt-20 flex flex-col justify-center items-center'>
