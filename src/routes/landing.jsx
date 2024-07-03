@@ -2,7 +2,6 @@
 // import Marquee from "react-marquee-slider"
 // import times from 'lodash/times'
 import Button from "../components/shared/Button.jsx"
-import Animation from "../components/shared/BlueAnimation.jsx"
 import './landing.css'
 import React, { useRef, useEffect, useContext, useState } from 'react';
 import { useLocation } from 'react-router-dom'
@@ -32,10 +31,11 @@ export default function Landing() {
   }, []); 
   
   const [imageWidth, setImageWidth] = useState(0); // State to hold image width
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
-  const VictorFieldImg = 'https://medinaenvironmentalcompany.com/wp-content/uploads/2024/06/VictorField.jpg'
-  const MedinaDrop = 'https://medinaenvironmentalcompany.com/wp-content/uploads/2024/06/LogoNoBackgroundHighQuality.png'
-  const Ripples = 'https://medinaenvironmentalcompany.com/wp-content/uploads/2024/06/ripples.png'
+  const VictorFieldImg = apiUrl + 'wp-content/uploads/2024/06/VictorField.jpg'
+  const MedinaDrop = apiUrl + '/wp-content/uploads/2024/06/LogoNoBackgroundHighQuality.png'
+  const Ripples = apiUrl + '/wp-content/uploads/2024/06/ripples.png'
   const divRef = useRef(null);
   const location = useLocation();
 

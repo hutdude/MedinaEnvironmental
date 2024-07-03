@@ -3,14 +3,15 @@ import TextureMesh from '../components/shared/BlueAnimation'
 import ValueBubble from '../components/learn/ValueBubble';
 import React, {useEffect, useContext} from 'react';
 import { PageContext } from '../main';
+import noise from '../assets/noise.png'
 import '../components/shared/BlueAnimation.css';
 import './about.css'
 
 export default function About() {
-  const victorField = "https://medinaenvironmentalcompany.com/wp-content/uploads/2024/07/Victor-Field-Photo-5.jpg"
-  const beforeAfter = "https://medinaenvironmentalcompany.com/wp-content/uploads/2024/07/Before-and-after.jpg"
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
+  const victorField = apiUrl + "/wp-content/uploads/2024/07/Victor-Field-Photo-5.jpg"
+  const beforeAfter = apiUrl + "/wp-content/uploads/2024/07/Before-and-after.jpg"
 
-  const noise = 'https://medinaenvironmentalcompany.com/wp-content/uploads/2024/07/EZZE-Design-Image.png'
 
   const { currentPage, setCurrentPage } = useContext(PageContext);
   useEffect(() => {
