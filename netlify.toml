@@ -1,5 +1,5 @@
 [[redirects]]
   from = "/*"
-  to = "/assets/index-D_DU-gXK.js"
+  to = "index.html"
   status = 200
   force = true
