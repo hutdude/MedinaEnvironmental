@@ -3,7 +3,7 @@
   to = "/index.html"
   status = 200
   force = false
-  conditions = {Path = {match_pattern = "^(?!${VITE_API_BASE_URL})"}}
+  conditions = {Path = {match_pattern = "^(?!https://axv.0f8.myftpupload.com)"}}
 
 [[headers]]
   for = "/*.js"
