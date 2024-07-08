@@ -7,7 +7,7 @@ export default function ValueBubble({text, gradient, size, top, left}) {
     }, [])
     return(
 
-        <div style={{top: `${top}%`, left: `${left}%`,  '--animate-duration': `${randomDuration}s`}} className={`animate__animated animate__slower animate__infinite animate__pulse transform absolute z-20 h-fit w-fit `}> 
+        <div style={{ '--animate-duration': `${randomDuration}s`}} className={`animate__animated animate__slower animate__infinite animate__pulse transform relative z-20 h-fit w-fit `}> 
             <svg width={size} height={size}>
                 <linearGradient  id='small-blue-gradient'  x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="28.67%" stopColor="#1E90FF" />
