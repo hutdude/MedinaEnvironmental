@@ -5,6 +5,11 @@
   force = false
   conditions = {Path = {match_pattern = "^(?!https://axv.0f8.myftpupload.com)"}}
 
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
 [[headers]]
   for = "/*.js"
   [headers.values]
