@@ -33,7 +33,7 @@ export default function Landing() {
   const [imageWidth, setImageWidth] = useState(0); // State to hold image width
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
-  const VictorFieldImg = apiUrl + 'wp-content/uploads/2024/06/VictorField.jpg'
+  const VictorFieldImg = apiUrl + '/wp-content/uploads/2024/06/VictorField.jpg'
   const MedinaDrop = apiUrl + '/wp-content/uploads/2024/06/LogoNoBackgroundHighQuality.png'
   const Ripples = apiUrl + '/wp-content/uploads/2024/06/ripples.png'
   const divRef = useRef(null);
