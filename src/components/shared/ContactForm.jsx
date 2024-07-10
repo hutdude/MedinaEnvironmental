@@ -61,7 +61,7 @@ export default function ContactForm({title=defaultTitle, text=defaultText}) {
 
     return(
     <div className='w-screen h-fit relative bg-Dark-Navy'>
-        <div style={{backgroundImage: `url(${Perlin})`}} className={`absolute w-full h-full z-30 opacity-25 bg-repeat`}></div>
+        <div style={{backgroundImage: `url(${Perlin})`}} className={`absolute w-full h-full z-20 opacity-25 bg-repeat`}></div>
         <div className='w-full px-8 pt-10 relative top-0 flex items-center  text-center flex-col z-20'>
             <h1 className='text-white max-w-[1000px]'>{title}</h1>
             <h3 className='text-white pt-8 text-lg'>{text}</h3>
