@@ -14,7 +14,7 @@ const Quote = ({}) => {
 
             <div className='text-center space-y-8 relative w-fit px-16 max-w-[1000px]'>
                 <FaQuoteLeft className='absolute top-0 left-0 opacity-10 h-16 w-16'/> 
-                <blockquote className='text-lg'>Our mission is to solve and manage you environmental and water issues in a cost-effective manner while providing excellent customer service so you can focus your business or mission. <br /> <b>Victor Medina</b>, Ph.D., P.E. CEO  </blockquote>
+                <blockquote className='text-lg'>Our mission is to solve and manage your environmental and water issues in a cost-effective manner while providing excellent customer service, so you can focus your business or mission. <br /> <b>Victor Medina</b>, Ph.D., P.E. CEO  </blockquote>
                 
             </div>
 
