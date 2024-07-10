@@ -9,7 +9,7 @@ import './about.css'
 import TimelineItem from '../components/about/TimelineItem';
 import Events from '../components/about/Events';
 import ContactForm from '../components/shared/ContactForm';
-import AnimatedBackground from '../components/shared/AnimatedBackgound';
+import OptimizedBackground from '../components/shared/AnimatedBackgound';
 import { IoChevronDownOutline } from "react-icons/io5";
 
 export default function About() {
@@ -29,8 +29,8 @@ export default function About() {
   return (
     <div id="about" className="overflow-hidden" >
 
-      <div id="main" className="relative h-screen w-full min-h-[600px] -z-10 md:min-h-[800px] ">
-        <AnimatedBackground />
+      <div id="main" className="relative h-screen w-full min-h-[600px]  md:min-h-[800px] ">
+        <OptimizedBackground />
         <h1 className='absolute max-w-[800px] w-full lg:w-auto px-8 top-1/2 left-1/2 text-3xl lg:text-4xl xl:text-5xl text-center transform -translate-y-1/2 -translate-x-1/2 text-Dark-Navy'>Discover the <span className='text-Dodger-Blue'>values</span> and <span className='text-Dodger-Blue'>stories</span> behind MECS</h1>
         <div className='flex flex-col items-center w-full absolute bottom-0'>
           <h6 className='text-Dark-Navy text-[1.25rem] pb-4 text-center'>SCROLL TO FIND OUT</h6>
