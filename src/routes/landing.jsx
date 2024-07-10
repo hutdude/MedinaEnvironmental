@@ -7,6 +7,7 @@ import React, { useRef, useEffect, useContext, useState } from 'react';
 import { useLocation } from 'react-router-dom'
 import ClientCategory from '../components/landing/ClientCategory.jsx'
 import ContactForm from '../components/shared/ContactForm.jsx'
+import VictorFieldImg from '../assets/VictorField.jpg'
 import Pipes1 from '../assets/pipes/pipes1.svg'
 import StatsCard from '../components/landing/StatsCard.jsx'
 import Quote from '../components/landing/Quote.jsx'
@@ -33,7 +34,6 @@ export default function Landing() {
   const [imageWidth, setImageWidth] = useState(0); // State to hold image width
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
-  const VictorFieldImg = apiUrl + '/wp-content/uploads/2024/06/VictorField.jpg'
   const MedinaDrop = apiUrl + '/wp-content/uploads/2024/06/LogoNoBackgroundHighQuality.png'
   const Ripples = apiUrl + '/wp-content/uploads/2024/06/ripples.png'
   const divRef = useRef(null);
@@ -149,11 +149,11 @@ export default function Landing() {
             </div>
             <div className="flex justify-center row-start-7 row-end-9 ">
               <div className="flex md:w-1/2">
-                <div className="flex-grow text-center md:text-left p-4">
+                <div className="flex-grow text-center md:text-left pr-4">
                 < Button  text="Our Services" newPage={"/services"} ></Button>
            
                 </div>
-                <div className="flex-grow text-center p-4">
+                <div className="flex-grow text-center pl-4">
                 <Button text="Contact Us" newPage={"#contact"}></Button>
                 </div>
               </div>
@@ -213,7 +213,7 @@ export default function Landing() {
          </div>
 
          {/* Experience Section */}
-         <div id="experience" className='relative w-full'>
+         <div id="experience" className=' bg-white relative w-full'>
                   <div className='w-full text-Title-Dark-Gray items-center flex flex-col'>
                     <div className='pt-24 items-center justify-center md:pt-48 max-w-[50ch]'>
                       <div className='relative inline-block'>
@@ -245,7 +245,7 @@ export default function Landing() {
          </div>
 
          
-         <div id="interested" className='pt-64 pb-32  text-center relative w-full'>
+         <div id="interested" className='pt-64 pb-32 bg-white  text-center relative w-full'>
           <p className='text-lg font-bold text-Light-Gray pb-16'>
             Interested in the environmental issues we're helping address?
             <br /><br />Check out the resources we've provided.

@@ -1,5 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import Navbar from '../components/shared/Navbar'
+import AnimatedBackgound from "../components/shared/AnimatedBackgound";
 export default function Root() {
     return (
       <>
@@ -7,7 +8,7 @@ export default function Root() {
           
         <Navbar />
         <Outlet />
-        
+        <AnimatedBackgound />
       </div>
       </>
     );

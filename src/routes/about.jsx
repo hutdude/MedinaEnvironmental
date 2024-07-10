@@ -30,7 +30,7 @@ export default function About() {
     <div id="about" className="overflow-hidden" >
 
       <div id="main" className="relative h-screen w-full min-h-[600px]  md:min-h-[800px] ">
-        <OptimizedBackground />
+        
         <h1 className='absolute max-w-[800px] w-full lg:w-auto px-8 top-1/2 left-1/2 text-3xl lg:text-4xl xl:text-5xl text-center transform -translate-y-1/2 -translate-x-1/2 text-Dark-Navy'>Discover the <span className='text-Dodger-Blue'>values</span> and <span className='text-Dodger-Blue'>stories</span> behind MECS</h1>
         <div className='flex flex-col items-center w-full absolute bottom-0'>
           <h6 className='text-Dark-Navy text-[1.25rem] pb-4 text-center'>SCROLL TO FIND OUT</h6>
@@ -61,7 +61,7 @@ export default function About() {
           <div className='py-48 grid gap-16 lg:gap-16 align-items-center justify-items-center content-center h-full w-full grid-cols-1 lg:grid-cols-5'>
           <div className='lg:col-start-3 z-30 lg:row-start-2 '>
               <div className='values-backdrop'>
-                <h1 className=' award-winning-gradient '>our values</h1>
+                <h1 className='text-4xl award-winning-gradient '>our values</h1>
               </div>
             </div>
 

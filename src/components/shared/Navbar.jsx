@@ -140,18 +140,23 @@ export default function Navbar() {
           </div>
 
           <DisclosurePanel className="lg:hidden bg-Dark-Navy h-screen">
+            
             <div className="space-y-5 px-6 pb-3 pt-2 text-lg text-black font-medium font-outfit tracking-tight">
               <div className='bg-white rounded-rounded-4'>
                 {navigation.map((item) => (
                   <DisclosureButton
                     key={item.name}
-                    as="a"
-                    href={item.href}
+                    as={Link}
+                    to={item.href}
                     className={classNames(
                       item.current ? 'font-extrabold' : ' hover:text-Electric-Blue',
                       'block px-3 py-3'
                     )}
                     aria-current={item.current ? 'page' : undefined}
+                    onClick={() => {
+                      // Close the mobile menu
+                      setMobileMenuShown(false);
+                    }}
                   >
                     {item.name}
                   </DisclosureButton>

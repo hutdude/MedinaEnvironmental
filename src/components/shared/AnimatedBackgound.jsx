@@ -20,7 +20,7 @@ const TextureMesh = () => {
 
   return (
     <mesh ref={mesh} position={[0, 0, 0]} scale={50} rotation={[0, 0, 0]}>
-      <planeGeometry args={[1, 1, 512, 512]} />
+      <planeGeometry args={[1, 1, 64, 64]} />
       <shaderMaterial
         fragmentShader={fragmentShader}
         vertexShader={vertexShader}
@@ -36,7 +36,7 @@ const TextureMesh = () => {
           u_scale: { value: 0.334 },
           u_time: { value: 0 },
           u_mouse: { value: [0, 0] },
-          u_resolution: { value: [512, 512] },
+          u_resolution: { value: [64, 64] },
         }}
         wireframe={false}
         wireframeLinewidth={0}
