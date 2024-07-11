@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import Navbar from '../components/shared/Navbar'
-import AnimatedBackgound from "../components/shared/AnimatedBackgound";
+import AnimatedBackgound from "../components/shared/AnimatedBackground";
 export default function Root() {
     return (
       <>

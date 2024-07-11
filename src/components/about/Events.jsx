@@ -28,7 +28,15 @@ function Events(){
 
 
   if(loading){
-    return <div>Loading...</div>
+    return <div>
+        <h1 className="text-5xl text-Light-Gray">
+        Upcoming Events
+        </h1>
+        
+        <h6 className="text-[1.25rem] text-center pt-4 pb-32 text-Light-Gray">
+        Find out where to see us next!
+        </h6><div>Loading...</div>
+    </div>
   }
 
   if(Object.keys(events).length == 0){

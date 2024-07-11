@@ -76,7 +76,7 @@ export default function Navbar() {
           <div className={`  border-b-4 transition-colors duration-300  pb-4 ${isScrolled && !mobileMenuShown ? 'border-gray-300 bg-Dark-Navy' : ' border-transparent lg:bg-Dark-Navy'} ${mobileMenuShown ? 'bg-Dark-Navy' : ' '}`}>
             <div className="grid grid-cols-3 h-auto pt-4 md:px-10 px-4 items-center ">
               
-              <Link className='col-start-1 col-end-2 flex justify start items-center' to={'/'}>
+              <Link className=' w-fit col-start-1 col-end-2 flex justify start items-center' to={'/'}>
                 <div className='flex items-center'>
                   <img
                       className="h-10 md:h-12 w-auto"

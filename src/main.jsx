@@ -13,6 +13,7 @@ import Services from './routes/services';
 import Projects from './routes/projects';
 import Learn from './routes/learn';
 import Coming from './routes/coming';
+import { BackgroundProvider } from './BackgroundContext.jsx';
 
 // Create the context
 export const PageContext = createContext();
@@ -34,30 +35,12 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      {
-        path: "",
-        element: <Landing />,
-      },
-      {
-        path: "about",
-        element: <About />,
-      },
-      {
-        path: "services",
-        element: <Services />,
-      },
-      {
-        path: "projects",
-        element: <Projects />,
-      },
-      {
-        path: "learn",
-        element: <Learn />,
-      },
-      {
-        path: "coming",
-        element: <Coming />,
-      },
+      { path: "", element: <Landing /> },
+      { path: "about", element: <About /> },
+      { path: "services", element: <Services /> },
+      { path: "projects", element: <Projects /> },
+      { path: "learn", element: <Learn /> },
+      { path: "coming", element: <Coming /> },
     ]
   },
 ]);
@@ -70,9 +53,11 @@ function render() {
   }
   root.render(
     <React.StrictMode>
-      <PageProvider>
-        <RouterProvider router={router} />
-      </PageProvider>
+      <BackgroundProvider>
+        <PageProvider>
+          <RouterProvider router={router} />
+        </PageProvider>
+      </BackgroundProvider>
     </React.StrictMode>
   );
 }

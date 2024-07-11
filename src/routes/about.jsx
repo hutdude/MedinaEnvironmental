@@ -9,17 +9,13 @@ import './about.css'
 import TimelineItem from '../components/about/TimelineItem';
 import Events from '../components/about/Events';
 import ContactForm from '../components/shared/ContactForm';
-import OptimizedBackground from '../components/shared/AnimatedBackgound';
+import OptimizedBackground from '../components/shared/AnimatedBackground';
+import victorField from '../assets/VictorField.jpg'
+import beforeAfter from '../assets/before-and-after.jpg'
+import vmpets from '../assets/VM-PETS.jpg'
 import { IoChevronDownOutline } from "react-icons/io5";
 
-export default function About() {
-  const apiUrl = import.meta.env.VITE_API_BASE_URL;
-  const victorField = apiUrl + "/wp-content/uploads/2024/07/Victor-Field-Photo-5.jpg"
-  const beforeAfter = apiUrl + "/wp-content/uploads/2024/07/Before-and-after.jpg"
-  const vmpets = apiUrl + "/wp-content/uploads/2024/07/VM-PETS-3.jpg"
-  
-  
-  
+export default function About() {  
 
   const { currentPage, setCurrentPage } = useContext(PageContext);
   useEffect(() => {
@@ -31,7 +27,7 @@ export default function About() {
 
       <div id="main" className="relative h-screen w-full min-h-[600px]  md:min-h-[800px] ">
         
-        <h1 className='absolute max-w-[800px] w-full lg:w-auto px-8 top-1/2 left-1/2 text-3xl lg:text-4xl xl:text-5xl text-center transform -translate-y-1/2 -translate-x-1/2 text-Dark-Navy'>Discover the <span className='text-Dodger-Blue'>values</span> and <span className='text-Dodger-Blue'>stories</span> behind MECS</h1>
+        <h1 className='absolute max-w-[800px] w-full lg:w-auto px-8 top-1/2 left-1/2 text-3xl lg:text-4xl xl:text-5xl text-center transform -translate-y-1/2 -translate-x-1/2 text-Dark-Navy'>Discover the <span className='text-Electric-Blue'>values</span> and <span className='text-Electric-Blue'>stories</span> behind MECS</h1>
         <div className='flex flex-col items-center w-full absolute bottom-0'>
           <h6 className='text-Dark-Navy text-[1.25rem] pb-4 text-center'>SCROLL TO FIND OUT</h6>
           <div className='mb-8'>
@@ -42,14 +38,14 @@ export default function About() {
 
       <div id="whoweare" className='bg-white relative grid grid-cols-1 lg:grid-cols-2 items-center h-screen bg-about-gradient'>
         <div className='flex flex-col gap-8'>
-          <div className='bg-Card-Light-Gray rounded-r-7 md:mr-40 xl:mr-16' >
+          <div className='bg-Card-Light-Gray rounded-r-7 md:mr-40 xl:mr-16 mr-12' >
             <h2 className='pl-16 md:pl-48 col-span-1 text-3xl xl:text-5xl tracking-wide font-extrabold text-Light-Gray '>who we are</h2>
           </div>
-          <p className='pl-16 md:pl-48 mr-12 xl:mr-24 text-justify text-[1.25rem]  text-Light-Gray '>
+          <p className='pl-16 md:pl-48 mr-12 xl:mr-24  text-[1.25rem]  text-Light-Gray '>
             Medina Environmental Consulting & Solutions (MECS) is a Minority-Owned Small Business led by Dr. Victor Medina. After earning his Ph.D in Civil/Environmental Engineering from UCLA, Dr. Medina has spent the past<b> 30+ years</b> as a professional Environmental Engineer.
           </p>
         </div>
-        <div className='w-full flex justify-center'><img className="rounded-7 " src={victorField}></img></div>
+        <div className='w-full flex justify-center px-8'><img className="rounded-7 " src={victorField}></img></div>
       </div>
 
       <div id="values" className='relative h-full w-screen'>
@@ -99,9 +95,9 @@ export default function About() {
         <div className='w-full p-12 flex justify-center'><img className="rounded-7 " src={beforeAfter}></img></div>
         <div className='flex flex-col gap-8'>
           <div className='bg-Card-Light-Gray rounded-l-7 ml-12' >
-            <h2 className='pl-48 col-span-1 text-2xl xl:text-4xl 2xl:text-5xl tracking-wide font-extrabold text-Light-Gray '>what we do</h2>
+            <h2 className='lg:pl-48 pl-4 col-span-1 text-2xl xl:text-4xl 2xl:text-5xl tracking-wide font-extrabold text-Light-Gray '>what we do</h2>
           </div>
-          <p className='pr-16 ml-16 md:pr-36 md:ml-36 text-justify text-[1.25rem]  text-Light-Gray '>
+          <p className='pr-16 ml-16 md:pr-36 md:ml-36  text-[1.25rem]  text-Light-Gray '>
             Here at MECS, we offer an array of environmental services for government agencies, non-profit’s, businesses, and industries. Ranging from project management and environmental research, to environmental education and training, we’re sure to have the expertise you need.
           </p>
         </div>
@@ -112,7 +108,7 @@ export default function About() {
       <div className='absolute inset-0 h-full w-full blue-gradient'></div>
       <div className='z-20 py-16 h-full relative algin-center'>
         <h2 className=' text-center  px-16 text-3xl lg:text-4xl font-bold award-winning-gradient'>award-winning expertise</h2>
-        <h6 className='text-white px-16 pt-8 text-center'>Dr. Medina’s leadership and innovation in the field garners attention from all over.</h6>
+        <h6 className='text-white px-16 pt-8 font-thin text-[1.25rem] text-center'>Dr. Medina’s leadership and innovation in the field garners attention from all over.</h6>
         <div className='border-white border-2 lg:border-0 rounded-7 mt-8 grid mx-8 py-16 xl:px-48 lg:px-36 grid-cols-1 lg:grid-cols-4'>
           <TimelineItem year='2019' text="ERDC-EL Project Lead of the Year"></TimelineItem>
           <TimelineItem year='2020' text="ERDC-EL Researcher of the Year"></TimelineItem>
@@ -123,15 +119,15 @@ export default function About() {
       </div>
     </div>
     <div id="whypickus" className='bg-white relative grid grid-cols-1 lg:grid-cols-2 items-center h-screen bg-about-gradient'>
-        <div className='flex flex-col gap-8'>
-          <div className='bg-Card-Light-Gray rounded-r-7 md:mr-40 xl:mr-16' >
-            <h2 className='pl-16 md:pl-48 col-span-1 text-3xl xl:text-5xl tracking-wide font-extrabold text-Light-Gray '>why pick us</h2>
+        <div className='pt-8 flex flex-col gap-8'>
+          <div className='bg-Card-Light-Gray rounded-r-7 mr-12 md:mr-40 xl:mr-16' >
+            <h2 className='pl-16  md:pl-48 col-span-1 text-3xl xl:text-5xl tracking-wide font-extrabold text-Light-Gray '>why pick us</h2>
           </div>
-          <p className='pl-16 md:pl-48 mr-12 xl:mr-24 text-justify text-[1.25rem]  text-Light-Gray '>
+          <p className='pl-16 md:pl-48 mr-12 xl:mr-24 text-[1.25rem]  text-Light-Gray '>
           When working with MECS, you will interact directly with our CEO Dr. Medina: no need to fool with corporate run-arounds. We’ve proven our commitment to Environmental Solutions over the past <b>30 years</b> with a proven track record of <b>130+ technical presentations</b>,  150+ technical articles/reports, and <b>5 patents</b> for environmental technologies.
           </p>
         </div>
-        <div className='w-full flex justify-center'><img className="rounded-7 " src={vmpets}></img></div>
+        <div className='w-full flex justify-center px-8'><img className="rounded-7 " src={vmpets}></img></div>
       </div>
 
 
