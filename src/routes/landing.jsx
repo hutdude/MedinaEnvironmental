@@ -7,11 +7,14 @@ import React, { useRef, useEffect, useContext, useState } from 'react';
 import { useLocation } from 'react-router-dom'
 import ClientCategory from '../components/landing/ClientCategory.jsx'
 import ContactForm from '../components/shared/ContactForm.jsx'
-import VictorFieldImg from '../assets/VictorField.jpg'
+import VictorFieldImg from '../assets/Headshot1.jpg'
 import Pipes1 from '../assets/pipes/pipes1.svg'
 import StatsCard from '../components/landing/StatsCard.jsx'
 import Quote from '../components/landing/Quote.jsx'
 import { PageContext } from "../main.jsx";
+import TextTransition, {presets} from "react-text-transition";
+import '../components/shared/gradients.css';
+import {motion as m} from 'framer-motion'
 
 function Marquee({children}) {
   return (
@@ -38,6 +41,16 @@ export default function Landing() {
   const Ripples = apiUrl + '/wp-content/uploads/2024/06/ripples.png'
   const divRef = useRef(null);
   const location = useLocation();
+
+  const [index, setIndex] = React.useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(
+      () => setIndex((index) => index + 1),
+      3000, // every 3 seconds
+    );
+    return () => clearTimeout(intervalId);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -102,11 +115,15 @@ export default function Landing() {
             
            
             <div className='flex justify-center align-baseline row-start-3 row-end-5'>
-              <h1 className="md:text-left lg:text-5xl col-span-2 text-4xl 2xl:text-5xl md:w-1/2 font-extrabold ">Enhance Your<br/>Environmental </h1>
+              <h1 className="text-left lg:text-5xl col-span-2 text-4xl 2xl:text-5xl md:w-1/2 font-extrabold ">Enhance Your<br/>Environmental 
+                <TextTransition ><span className="award-winning-gradient">{traits[index % traits.length]}</span></TextTransition>
+              </h1>
             </div>
             <div className=' row-start-5 row-end-6 align-top md:col-span-full '>
               
-                <Marquee className='pr-12 scroll-marquee'>
+              
+              {/* OLD MARQUEE BACKUP */}
+                {/* <Marquee className='pr-12 scroll-marquee'>
                   {traits.map((item) => (<div className='flex items-center ' key={item}>
                   
                     <h2 className='text-4xl tracking-widest text-Electric-Blue font-merriweather px-24'>
@@ -115,23 +132,10 @@ export default function Landing() {
                     <img className="h-10 w-auto"src={MedinaDrop}></img>
                   </div>
                   ))}
-                </Marquee>
-              {/* <Marquee className='md:col-span-full ' velocity='30' >
-              {times(5, Number).map(id => (
-                  <div className='flex items-center' key={`marquee-id-${id}`}>
+                </Marquee> */}
               
-                      <h2 className=' tracking-widest text-Electric-Blue font-merriweather text-4xl  px-24'>
-                        {traits[id]}
-                      </h2>
-                    <img className="h-10 w-auto"src={MedinaDrop}></img>
-                    </div>
-              ))
-
-              }
-               
-                 
-              </Marquee> */}
             </div>
+            
             <div className='relative col-start-2 hidden md:block  row-start-3 row-end-6' >
               <div className='inline-block p-4>'>
                 <div className='relative'>
@@ -143,7 +147,7 @@ export default function Landing() {
            
             </div>
             <div className='flex justify-center  row-start-6 ' >
-              <h6 className='text-base text-white md:text-md md:w-1/2 text-center md:text-left '>
+              <h6 className='text-[1.25rem] text-white md:text-md md:w-1/2 text-center md:text-left '>
                   <b>Bolster your project</b> with our expertise in environmental solutions, research, and project management
               </h6>
             </div>
@@ -161,6 +165,10 @@ export default function Landing() {
             
           </div>
         </div>
+
+        <div className='w-full py-96 bg-Dark-Navy text-white' id="quote">
+            <Quote />
+         </div>
 
         {/* IMPACT SECTION */}
         <div id="impact" className='relative h-200vh w-full flex items-center justify-center personal-gradient'>
@@ -231,18 +239,34 @@ export default function Landing() {
                       </div>
                       
                     </div>
-                    <div className='grid max-w-[1900px] z-30 grid-cols-1 w-full px-10 p-20 pt-48 space-y-8 lg:space-y-0 lg:space-x-8 lg:grid-cols-3'>
-                      <StatsCard bg='bg-Card-Light-Gray' title='5 Patents' subtitle='For innovative environmental technologies' text='A testament to our advacements in the field.' height='72' />
-                      <StatsCard bg='bg-Powder-Blue' title='30 Years' subtitle='Professional Experience' text='Researching and developing modern environmental solutions'  height='110'/>
-                      <StatsCard bg='bg-[#5DBAEF]' title='150 Articles' subtitle='Technical Articles and Reports' text='Including 30 journal publications'  height='90px'/>
+                    <div className='grid items-end max-w-[1900px] z-30 grid-cols-1 w-full px-10 p-20 pt-48 space-y-8 lg:space-y-0 lg:space-x-8 lg:grid-cols-3'>
+                      <m.div
+                        initial={{opacity: 0, y: '100%'}}
+                        whileInView={{opacity: 1, y: 0}}
+                        transition={{ duration: 0.8, ease: 'easeOut' }}
+                        viewport={{ once: true, amount: .3}}>
+                        <StatsCard bg='bg-Card-Light-Gray' title='5 Patents' subtitle='For innovative environmental technologies' text='A testament to our advacements in the field.' height='72' />
+                      </m.div>
+                      <m.div
+                      initial={{opacity: 0, y: '100%'}}
+                      whileInView={{opacity: 1, y: 0}}
+                      transition={{delay: 1, duration: 0.8, ease: 'easeOut' }}
+                      viewport={{ once: true, amount: .3}}>
+                        <StatsCard bg='bg-Powder-Blue' title='30 Years' subtitle='Professional Experience' text='Researching and developing modern environmental solutions'  height='96'/>
+                      </m.div>
+                      <m.div
+                      initial={{opacity: 0, y: '100%'}}
+                      whileInView={{opacity: 1, y: 0}}
+                      transition={{delay:0.5, duration: 0.8, ease: 'easeOut' }}
+                      viewport={{ once: true, amount: .3}}>
+                        <StatsCard bg='bg-[#5DBAEF]' title='150 Articles' subtitle='Technical Articles and Reports' text='Including 30 journal publications'  height='96'/>
+                      </m.div>
                       
                     </div>
                   </div>
          </div>
 
-         <div className='w-full bg-gray-100 shadow-black' id="quote">
-            <Quote />
-         </div>
+         
 
          
          <div id="interested" className='pt-64 pb-32 bg-white  text-center relative w-full'>

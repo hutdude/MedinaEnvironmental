@@ -1,7 +1,7 @@
 import { PageContext } from "../main";
 import { useContext, useEffect } from "react";
 import { IoChevronDownOutline } from "react-icons/io5";
-
+import Partners from '../components/projects/Partners.jsx'
 
 
 export default function Projects() {
@@ -11,7 +11,7 @@ export default function Projects() {
   }, []); 
 
   return (
-    <div id="projects">
+    <div id="projects" className="overflow-hidden">
       <div id="main" className="relative h-screen w-full min-h-[600px]  md:min-h-[800px] ">
         
         <h1 className='absolute max-w-[900px] w-full lg:w-auto px-8 top-1/2 left-1/2 text-3xl lg:text-4xl xl:text-5xl text-center transform -translate-y-1/2 -translate-x-1/2 text-Dark-Navy'>
@@ -24,6 +24,12 @@ export default function Projects() {
             <IoChevronDownOutline />
           </div>
         </div>
+      </div>
+      
+      <div className="h-screen w-screen bg-white">
+      </div>
+      <div id="partners">
+        <Partners />
       </div>
     </div>
   );

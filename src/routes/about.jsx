@@ -10,9 +10,11 @@ import TimelineItem from '../components/about/TimelineItem';
 import Events from '../components/about/Events';
 import ContactForm from '../components/shared/ContactForm';
 import OptimizedBackground from '../components/shared/AnimatedBackground';
-import victorField from '../assets/VictorField.jpg'
+import victorField from '../assets/VictorFieldHat.jpg'
 import beforeAfter from '../assets/before-and-after.jpg'
 import vmpets from '../assets/VM-PETS.jpg'
+import Noise from '../components/shared/Noise';
+import AwardTimeline from '../components/about/AwardTimeline';
 import { IoChevronDownOutline } from "react-icons/io5";
 
 export default function About() {  
@@ -49,7 +51,7 @@ export default function About() {
       </div>
 
       <div id="values" className='relative h-full w-screen'>
-        <div className= 'absolute inset-0 z-10 h-full w-full bg-repeat bg-center ' style={{backgroundImage: `url(${noise}`}}></div>
+        <Noise />
         <div className='absolute inset-0 h-full w-full blue-gradient'></div>
         
         <div className='relative h-full w-full flex '>
@@ -104,19 +106,9 @@ export default function About() {
       </div>
    
     <div id="timeline" className='relative shadow-pipe w-screen'>
-      <div className= 'absolute inset-0 z-10 h-full w-full bg-repeat bg-center ' style={{backgroundImage: `url(${noise}`}}></div>
+      <Noise />
       <div className='absolute inset-0 h-full w-full blue-gradient'></div>
-      <div className='z-20 py-16 h-full relative algin-center'>
-        <h2 className=' text-center  px-16 text-3xl lg:text-4xl font-bold award-winning-gradient'>award-winning expertise</h2>
-        <h6 className='text-white px-16 pt-8 font-thin text-[1.25rem] text-center'>Dr. Medina’s leadership and innovation in the field garners attention from all over.</h6>
-        <div className='border-white border-2 lg:border-0 rounded-7 mt-8 grid mx-8 py-16 xl:px-48 lg:px-36 grid-cols-1 lg:grid-cols-4'>
-          <TimelineItem year='2019' text="ERDC-EL Project Lead of the Year"></TimelineItem>
-          <TimelineItem year='2020' text="ERDC-EL Researcher of the Year"></TimelineItem>
-          <TimelineItem year='2021' text="ERDC International Research Project of the Year"></TimelineItem>
-          <TimelineItem year='2022' text="ASHRAE Technical Paper Award"></TimelineItem>
-        </div>
-
-      </div>
+      <AwardTimeline />
     </div>
     <div id="whypickus" className='bg-white relative grid grid-cols-1 lg:grid-cols-2 items-center h-screen bg-about-gradient'>
         <div className='pt-8 flex flex-col gap-8'>
@@ -127,11 +119,17 @@ export default function About() {
           When working with MECS, you will interact directly with our CEO Dr. Medina: no need to fool with corporate run-arounds. We’ve proven our commitment to Environmental Solutions over the past <b>30 years</b> with a proven track record of <b>130+ technical presentations</b>,  150+ technical articles/reports, and <b>5 patents</b> for environmental technologies.
           </p>
         </div>
-        <div className='w-full flex justify-center px-8'><img className="rounded-7 " src={vmpets}></img></div>
+        <div className='w-full p-36 lg:p-12 flex justify-center max-h-[800px]'>
+          <img 
+            className="rounded-7 object-cover w-full h-full max-w-[900px] max-h-[500px]" 
+            src={vmpets} 
+            alt="VM Pets"
+          />
+        </div>
       </div>
 
 
-      <div id="eventsSection" className='bg-white'>
+      <div id="eventsSection px-8" className='bg-white'>
         <Events />
       </div>
       

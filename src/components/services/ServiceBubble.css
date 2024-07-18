@@ -1,0 +1,5 @@
+.small-blue-gradient {
+    fill: linear-gradient(241deg, #1E90FF 28.67%, #1D90FF 33.27%, #1892FF 37.87%, #0D94FF 42.47%, #0098FF 47.06%, #009CFF 51.66%, #00A1FF 56.26%, #00A7FF 60.86%, #00AEFF 65.45%, #00B5FF 70.05%, #00BDFF 74.65%, #00C6FF 79.25%, #00CFFF 83.84%, #26D9FF 88.44%, #46E3FF 93.04%, #62EEFF 97.64%, #7DF9FF 102.23%);
+
+    filter: drop-shadow(4px -5px 6px rgba(0, 0, 0, 0.25));
+}

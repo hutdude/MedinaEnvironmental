@@ -1,8 +1,9 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState, useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import {
   createBrowserRouter,
   RouterProvider,
+  useLocation
 } from "react-router-dom";
 import Root from './routes/root';
 import ErrorPage from "./error-page";
@@ -29,10 +30,26 @@ function PageProvider({ children }) {
   );
 }
 
+// Scroll to top component
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: (
+      <>
+        <ScrollToTop />
+        <Root />
+      </>
+    ),
     errorElement: <ErrorPage />,
     children: [
       { path: "", element: <Landing /> },

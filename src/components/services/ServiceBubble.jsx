@@ -1,7 +1,7 @@
-import './ValueBubble.css'
+import './ServiceBubble.css'
 import 'animate.css'
 import React, {useMemo} from 'react';
-export default function ValueBubble({text, gradient, size, top, left}) {
+export default function ServiceBubble({text, gradient, size, fontSize, }) {
     const randomDuration = useMemo(() => {
         return (Math.random() * 2 + 1).toFixed(2);
     }, [])
@@ -29,7 +29,7 @@ export default function ValueBubble({text, gradient, size, top, left}) {
                                 <stop offset="97.64%" stopColor="#62EEFF" />
                                 <stop offset="102.23%" stopColor="#7DF9FF" />
                     </linearGradient>
-                    <linearGradient id="pearl-blue-gradient" gradientTransform="rotate(241)">
+                    <linearGradient id="pearl-blue-gradient" gradientTransform="">
                         <stop offset="28.67%" stopColor="#7DF9FF" />
                         <stop offset="33.27%" stopColor="#7EF9FF" />
                         <stop offset="37.87%" stopColor="#80F9FF" />
@@ -48,8 +48,8 @@ export default function ValueBubble({text, gradient, size, top, left}) {
                         <stop offset="97.64%" stopColor="#F2FFFF" />
                         <stop offset="102.23%" stopColor="#FFF" />
                         </linearGradient>
-                    <linearGradient id="green-pearl-gradient" gradientTransform="rotate(241)">
-                        <stop offset="28.67%" stopColor="#B0E0E6" />
+                    <linearGradient id="green-pearl-gradient" >
+                        <stop offset="0%" stopColor="#B0E0E6" />
                         <stop offset="33.27%" stopColor="#B0E0E6" />
                         <stop offset="37.87%" stopColor="#AFE0E6" />
                         <stop offset="42.47%" stopColor="#AFE1E7" />
@@ -65,11 +65,11 @@ export default function ValueBubble({text, gradient, size, top, left}) {
                         <stop offset="88.44%" stopColor="#92F1F7" />
                         <stop offset="93.04%" stopColor="#8CF3FA" />
                         <stop offset="97.64%" stopColor="#85F6FC" />
-                        <stop offset="102.23%" stopColor="#7DF9FF" />
+                        <stop offset="100%" stopColor="#7DF9FF" />
                         </linearGradient>
                         <filter id="drop-shadow" x="-20%" y="-20%" width="140%" height="140%">
-                            <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-                            <feOffset dx="4" dy="-5" result="offsetblur"/>
+                            <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+                            <feOffset dx="3" dy="-2" result="offsetblur"/>
                             <feFlood floodColor="rgba(0,0,0,0.25)"/>
                             <feComposite in2="offsetblur" operator="in"/>
                             <feMerge>
@@ -88,7 +88,7 @@ export default function ValueBubble({text, gradient, size, top, left}) {
                     textAnchor="middle" 
                     dominantBaseline="middle" 
                     fill="black"
-                    fontSize="9"
+                    fontSize={fontSize}
                     className=" font-bold"
                     >
                     {text.split('\n').map((line, index) => (

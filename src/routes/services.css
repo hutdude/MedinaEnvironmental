@@ -1,0 +1,8 @@
+.service-popup {
+    @apply absolute transform -translate-x-1/2 -translate-y-1/2;
+}
+
+.esg-gradient {
+    background: linear-gradient(180deg, #030037 0%, #586C8E 22.6%, #ADD8E6 42.1%, #82A2BA 65.6%, #2E2E2E 100%);
+}
+

@@ -26,6 +26,9 @@ const Footer = ({}) => {
                 </h1>
             </div>
             <p className='text-white text-center text-[0.75em] font-extralight'>© 2024 Medina Environmental Consulting and Solutions</p>
+            <p className='text-white text-center text-[0.75em] font-extralight'>204 Catherine Corner
+                    <br />Brandon, MS 39047</p>
+
             <div className='flex items-center justify-center'>
                         <a
                           href={socials[0].href}
