@@ -1,28 +1,15 @@
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  force = false
-  conditions = {Path = {match_pattern = "^(?!https://axv.0f8.myftpupload.com)"}}
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
   from = "/api/*"
-  to = "https://axv.0f8.myftpupload.com/"
+  to = "https://axv.0f8.myftpupload.com/:splat"
   status = 200
   force = true
-  header = {X-From = "Netlify"}
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
 [[headers]]
-  for = "/*.js"
+  for = "/*"
   [headers.values]
-    Content-Type = "text/javascript"
-
-[[headers]]
-  for = "/*.jsx"
-  [headers.values]
-    Content-Type = "text/javascript"
+    Access-Control-Allow-Origin = "*"
