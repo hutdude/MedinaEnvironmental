@@ -11,7 +11,7 @@
   status = 200
 
 [[redirects]]
-  from = "/api/"
+  from = "/api/*"
   to = "https://axv.0f8.myftpupload.com/"
   status = 200
   force = true

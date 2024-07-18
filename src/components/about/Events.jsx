@@ -24,7 +24,7 @@ function Events(){
                 if (!req.ok) {
                     throw new Error(`HTTP error! status: ${req.status}`);
                 }
-
+                
                 const eventsData = await req.json();
                 setEvents(eventsData);
                 setLoading(false);
