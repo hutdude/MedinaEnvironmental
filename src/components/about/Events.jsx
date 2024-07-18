@@ -12,14 +12,12 @@ function Events(){
         const fetchEvents = async () => {
             try {
                 const timestamp = Date.now(); // Add a timestamp to prevent caching
-                const eventsURL = `${import.meta.env.VITE_API_BASE_URL}/wp-json/wp/v2/events?acf_format=standard&_fields=id,title,acf&timestamp=${timestamp}`;
+                const eventsURL = `/api/wp-json/wp/v2/events?acf_format=standard&_fields=id,title,acf&timestamp=${timestamp}`;
                 
                 const req = await fetch(eventsURL, {
                     method: 'GET',
                     headers: {
                         'Cache-Control': 'no-cache, no-store, must-revalidate',
-                        'Pragma': 'no-cache',
-                        'Expires': '0'
                     }
                 });
 

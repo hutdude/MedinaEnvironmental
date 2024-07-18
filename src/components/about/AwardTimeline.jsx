@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import TimelineItem from "./TimelineItem"
 
-const awardsURL = `${import.meta.env.VITE_API_BASE_URL}/wp-json/wp/v2/awards?acf_format=standard&_fields=id,title,acf`
+const awardsURL = `/api/wp-json/wp/v2/awards?acf_format=standard&_fields=id,title,acf`
 
 
 export default function AwardTimeline() {
@@ -16,8 +16,6 @@ export default function AwardTimeline() {
                     method: 'GET',
                     headers: {
                         'Cache-Control': 'no-cache, no-store, must-revalidate',
-                        'Pragma': 'no-cache',
-                        'Expires': '0'
                     }
                 });
 
@@ -70,7 +68,7 @@ export default function AwardTimeline() {
         <div className='border-white border-2 lg:border-0 rounded-7 mt-8 grid mx-8 py-16 xl:px-48 lg:px-36 grid-cols-1 lg:grid-cols-4'>
 
             {awards.map(award => (
-                <TimelineItem year={award.acf.year} text={award.title.rendered}></TimelineItem>
+                <TimelineItem key={award.id} year={award.acf.year} text={award.title.rendered}></TimelineItem>
             ))}
         </div>
 
