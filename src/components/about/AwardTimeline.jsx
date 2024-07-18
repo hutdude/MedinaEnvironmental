@@ -28,9 +28,9 @@ export default function AwardTimeline() {
                 const awardsData = await req.json();
                 setAwards(awardsData);
                 setLoading(false);
-                console.log('events', awardsData);
+                console.log('awards', awardsData);
             } catch (error) {
-                console.error('Error fetching events:', error);
+                console.error('Error fetching awards:', error);
                 setLoading(false);
             }
         };
@@ -40,7 +40,7 @@ export default function AwardTimeline() {
     if(loading){
         return <div>
             <h1 className="text-5xl text-Light-Gray">
-            Upcoming Events
+            Upcoming Awards
             </h1>
             
             <h6 className="text-[1.25rem] text-center pt-4 pb-32 text-Light-Gray">
@@ -51,7 +51,7 @@ export default function AwardTimeline() {
     
       if(!awards || (Array.isArray(awards) && awards.length === 0)){
         return(<div><h1 className="text-5xl text-Light-Gray">
-            Upcoming Events
+            Upcoming Awards
         </h1>
         
         <h6 className="text-[1.25rem] text-center pt-4 pb-32 text-Light-Gray">
