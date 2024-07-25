@@ -5,12 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node copyFiles.cjs",
+    "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.3.3",
+    "@emailjs/browser": "^4.4.1",
     "@headlessui/react": "^2.0.3",
     "@heroicons/react": "^2.1.3",
     "@lottiefiles/dotlottie-react": "^0.7.2",
@@ -23,7 +23,6 @@
     "dompurify": "^3.1.6",
     "dotenv": "^16.4.5",
     "emailjs": "^4.0.3",
-    "emailjs-com": "^3.2.0",
     "framer-motion": "^11.3.6",
     "fs-extra": "^11.2.0",
     "lottie-react": "^2.4.0",
