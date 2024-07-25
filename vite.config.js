@@ -11,6 +11,9 @@ export default defineConfig({
   optimizeDeps: {
     include: ['react-pdf', 'react-icons']
   },
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(process.env.VITE_ENVIRONMENT || 'development')
+  },
   build: {
     commonjsOptions: {
       include: [/react-pdf/, /pdfjs-dist/, /react-icons/, /node_modules/],
