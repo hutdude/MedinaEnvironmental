@@ -73,8 +73,8 @@ export default function Navbar() {
     <Disclosure as="nav" id="navbar" className={`fixed h-auto top-0 w-full z-50`}>
       {({ open }) => (
         <>
-          <div className={`  border-b-4 transition-colors duration-300  pb-4 ${isScrolled && !mobileMenuShown ? 'border-gray-300 bg-Dark-Navy' : ' border-transparent lg:bg-Dark-Navy'} ${mobileMenuShown ? 'bg-Dark-Navy' : ' '}`}>
-            <div className="grid grid-cols-3 h-auto pt-4 md:px-10 px-4 items-center ">
+          <div className={`  border-b-4 transition-colors duration-300  pb-2 ${isScrolled && !mobileMenuShown ? 'border-gray-300 bg-Dark-Navy' : ' border-transparent lg:bg-Dark-Navy'} ${mobileMenuShown ? 'bg-Dark-Navy' : ' '}`}>
+            <div className="grid grid-cols-3 h-auto pt-2 md:px-10 px-4 items-center ">
               
               <Link className=' w-fit col-start-1 col-end-2 flex justify start items-center' to={'/'}>
                 <div className='flex items-center'>
@@ -98,7 +98,7 @@ export default function Navbar() {
                         to={item.href}
                         className={classNames(
                           item.current ? 'text-white  font-bold' : 'text-gray-300 ',
-                          'rounded-md  hover:text-white px-3 py-2 hover:scale-110 truncate'
+                          'rounded-md z-20 hover:text-white px-3 py-2 hover:scale-110 truncate'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >

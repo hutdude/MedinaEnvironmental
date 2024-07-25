@@ -1,53 +1,81 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
 
-const ScrollDrivenStickySection = () => {
-  const sectionRef = useRef(null);
-  const contentRef = useRef(null);
+const ScrollDrivenStickySection = ({ cards, nextSectionId }) => {
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
   const [isSticky, setIsSticky] = useState(false);
+  const sectionRef = useRef(null);
+  const containerRef = useRef(null);
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start']
-  });
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: [0, 1]
+    };
 
-  const contentProgress = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 1]);
-  const smoothContentProgress = useSpring(contentProgress, { damping: 50, stiffness: 400 });
+    const handleIntersect = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.intersectionRatio < 1) {
+            setIsSticky(true);
+          } else {
+            setIsSticky(false);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, options);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (sectionRef.current && contentRef.current) {
-        const sectionTop = sectionRef.current.offsetTop;
-        const sectionBottom = sectionTop + sectionRef.current.offsetHeight;
-        const scrollPosition = window.scrollY + window.innerHeight;
-
-        setIsSticky(scrollPosition > sectionTop && scrollPosition < sectionBottom);
+      if (containerRef.current) {
+        const { top, height } = containerRef.current.getBoundingClientRect();
+        const scrollPosition = window.innerHeight - top;
+        const totalHeight = height + window.innerHeight;
+        const scrollPercentage = scrollPosition / totalHeight;
+        const newIndex = Math.min(
+          Math.floor(scrollPercentage * cards.length),
+          cards.length - 1
+        );
+        setActiveCardIndex(newIndex);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [cards.length]);
 
   return (
-    <div ref={sectionRef} style={{ height: '300vh' }}>
+    <section ref={sectionRef} className="relative min-h-screen">
       <div
-        ref={contentRef}
-        style={{
-          position: isSticky ? 'sticky' : 'relative',
-          top: 0,
-          height: '100vh',
-          overflow: 'hidden'
-        }}
+        ref={containerRef}
+        className={`transition-all duration-300 ${
+          isSticky ? 'fixed top-0 left-0 w-full h-screen' : ''
+        }`}
       >
-        {/* Your content here */}
-        <motion.div style={{ y: useTransform(smoothContentProgress, [0, 1], ['0%', '-66.67%']) }}>
-          <div style={{ height: '100vh', background: 'red' }}>Content 1</div>
-          <div style={{ height: '100vh', background: 'green' }}>Content 2</div>
-          <div style={{ height: '100vh', background: 'blue' }}>Content 3</div>
-        </motion.div>
+        <div className="flex items-center justify-center h-full">
+          <div className="bg-white rounded-lg shadow-lg p-8 max-w-md">
+            <h2 className="text-2xl font-bold mb-4">{cards[activeCardIndex].title}</h2>
+            <p>{cards[activeCardIndex].content}</p>
+          </div>
+        </div>
       </div>
-    </div>
+      <div style={{ height: `${100 * cards.length}vh` }}></div>
+      <div id={nextSectionId} className="bg-gray-100 min-h-screen flex items-center justify-center">
+        <h2 className="text-3xl font-bold">Next Section</h2>
+      </div>
+    </section>
   );
 };
 

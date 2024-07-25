@@ -1,35 +1,42 @@
-
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoMdPin } from "react-icons/io";
 
-export default function Card({title, imageURL, category, location, date} ) {
+export default function Card({title, imageURL, category, location, date, bg, textColor, text} ) {
     return (
-        
-
-  <div className="h-full relative rounded-7 flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
-    <div
-      className="relative h-64 rounded-t-7  -mt-6 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
-      <img
-        src={imageURL}
-        alt="card-image" 
-        className="w-full"/>
-    </div>
-  <span className="absolute top-0 right-8 rounded-7 z-20 inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium lowercase text-gray-600 ring-1 ring-inset ring-gray-500/10">{category}</span>
-  <div className="p-8">
-    <h5 className="block mb-2 font-sans text-lg antialiased font-bold leading-snug tracking-normal text-Dark-Navy">
-      {title}
-    </h5>
-    <div className="flex justify-start items-center gap-4 py-4">
-        <FaCalendarAlt />
-        <p className="text-[1.25rem]">{date}</p>
-    </div>
-    <div className="flex justify-start items-center gap-4">
-        <IoMdPin />
-        <p className="text-[1.25rem]">{location}</p>
-    </div>
-  </div>
-  
-</div>  
-
+        <div className={`flex rounded-rounded-6 flex-col mt-6 text-gray-700 ${bg ? bg : 'bg-gray-50'} shadow-md bg-clip-border rounded-xl w-full max-w-sm`}>
+            <div className="relative rounded-t-rounded-6 h-64 overflow-hidden rounded-t-xl bg-gray-200">
+                <img
+                    src={imageURL}
+                    alt="card-image" 
+                    className="w-full h-full object-contain"
+                />
+                <span className="absolute top-2 right-2 z-20 inline-flex items-center rounded-rounded-3 bg-gray-50 px-2 py-1 text-xs font-medium lowercase text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                    {category}
+                </span>
+            </div>
+            <div className="p-4 sm:p-6">
+                <h5 className={`block mb-2 font-sans text-base sm:text-lg antialiased font-bold leading-snug tracking-normal ${textColor ? textColor : 'text-Dark-Navy'}`}>
+                    {title}
+                </h5>
+                {date && (
+                    <div className="flex items-center gap-2 py-2">
+                        <FaCalendarAlt className="text-gray-500" />
+                        <p className="text-xs sm:text-sm text-gray-600">{date}</p>
+                    </div>
+                )}
+                {location && (
+                    <div className="flex items-center gap-2">
+                        <IoMdPin className="text-gray-500" />
+                        <p className="text-xs sm:text-sm text-gray-600">{location}</p>
+                    </div>
+                )}
+                
+                {text && (
+                    <div className="flex items-center gap-2 mt-2">
+                        <p className={`text-xs sm:text-sm opacity-80 ${textColor ? textColor : 'text-gray-600'}`}>{text}</p>
+                    </div>
+                )}
+            </div>
+        </div>  
     )
 }

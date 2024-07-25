@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom"
 
-const Button = ({ text, newPage, type='button', className }) => {
+const Button = ({ text, newPage, type='button', className, blank=false}) => {
   return (
-    <Link to= {newPage}>
+    <Link to={newPage} {...(blank ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
       <button
         type={type}
         className={`px-4 py-2 hover:scale-105 text-base md:text-lg tracking-wider h-14 md:h-20 w-40 md:w-60 rounded-rounded-6 bg-Dodger-Blue text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 ${className}`}

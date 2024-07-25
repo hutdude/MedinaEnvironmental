@@ -1,6 +1,11 @@
+import React from 'react';
 import noise from '../../assets/noise.png'
-export default function Noise () {
-    return(
-        <div className= ' absolute z-10 h-[inherit] w-full bg-repeat bg-center ' style={{backgroundImage: `url(${noise}`}}></div>
+
+export default function Noise({z10=false}) {
+    return (
+        <div 
+            className={`absolute ${z10 ? 'z-10' : ''} inset-0 bg-repeat bg-center`} 
+            style={{backgroundImage: `url(${noise})`}}
+        ></div>
     )
 }

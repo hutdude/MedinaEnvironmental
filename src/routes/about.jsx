@@ -27,7 +27,7 @@ export default function About() {
   return (
     <div id="about" className="overflow-hidden" >
 
-      <div id="main" className="relative h-screen w-full min-h-[600px]  md:min-h-[800px] ">
+      <div id="main" className="relative h-screen w-full min-h-[600px]  md:min-h-[700px] ">
         
         <h1 className='absolute max-w-[800px] w-full lg:w-auto px-8 top-1/2 left-1/2 text-3xl lg:text-4xl xl:text-5xl text-center transform -translate-y-1/2 -translate-x-1/2 text-Dark-Navy'>Discover the <span className='text-Electric-Blue'>values</span> and <span className='text-Electric-Blue'>stories</span> behind MECS</h1>
         <div className='flex flex-col items-center w-full absolute bottom-0'>
@@ -38,7 +38,7 @@ export default function About() {
         </div>
       </div>
 
-      <div id="whoweare" className='bg-white relative grid grid-cols-1 lg:grid-cols-2 items-center h-screen bg-about-gradient'>
+      <div id="whoweare" className='bg-white relative grid grid-cols-1 lg:grid-cols-2 items-center py-8 h-full bg-about-gradient'>
         <div className='flex flex-col gap-8'>
           <div className='bg-Card-Light-Gray rounded-r-7 md:mr-40 xl:mr-16 mr-12' >
             <h2 className='pl-16 md:pl-48 col-span-1 text-3xl xl:text-5xl tracking-wide font-extrabold text-Light-Gray '>who we are</h2>
@@ -92,7 +92,7 @@ export default function About() {
         
       </div>
   
-      <div id="what we do" className='bg-white relative grid grid-cols-1 lg:grid-cols-2 items-center h-screen bg-about-gradient'>
+      <div id="what we do" className='bg-white py-8 relative grid grid-cols-1 lg:grid-cols-2 items-center h-full min-h-screen bg-about-gradient'>
         
         <div className='w-full p-12 flex justify-center'><img className="rounded-7 " src={beforeAfter}></img></div>
         <div className='flex flex-col gap-8'>
@@ -110,7 +110,7 @@ export default function About() {
       <div className='absolute inset-0 h-full w-full blue-gradient'></div>
       <AwardTimeline />
     </div>
-    <div id="whypickus" className='bg-white relative grid grid-cols-1 lg:grid-cols-2 items-center h-screen bg-about-gradient'>
+    <div id="whypickus" className='bg-white relative grid grid-cols-1 lg:grid-cols-2 items-center h-full bg-about-gradient'>
         <div className='pt-8 flex flex-col gap-8'>
           <div className='bg-Card-Light-Gray rounded-r-7 mr-12 md:mr-40 xl:mr-16' >
             <h2 className='pl-16  md:pl-48 col-span-1 text-3xl xl:text-5xl tracking-wide font-extrabold text-Light-Gray '>why pick us</h2>

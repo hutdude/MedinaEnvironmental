@@ -24,7 +24,11 @@ export default function AwardTimeline() {
                 }
 
                 const awardsData = await req.json();
-                setAwards(awardsData);
+
+                const sortedAwards = awardsData.sort((a, b) => {
+                    return parseInt(a.acf.year) - parseInt(b.acf.year);
+                })
+                setAwards(sortedAwards);
                 setLoading(false);
                 console.log('awards', awardsData);
             } catch (error) {

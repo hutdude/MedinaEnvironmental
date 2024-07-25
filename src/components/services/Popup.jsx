@@ -1,38 +1,43 @@
 import React, { useState } from 'react';
 import ServiceBubble from './ServiceBubble';
 import vmPets from '../../assets/VM-PETS.jpg'
+import lab from '../../assets/Lab.jpg'
+import victorField from '../../assets/VictorField.jpg'
+import consultingImg from '../../assets/consulting-img.jpg'
+import solutionsProducts from '../../assets/solutionsProducts.png'
+import educationalTraining from '../../assets/educational-training.jpg'
 
 const Popup = ({ isOpen, onClose, children, img }) => {
   if (!isOpen) return null;
-    const imgArray = [vmPets]
+    const imgArray = [vmPets, lab, victorField, consultingImg, solutionsProducts, educationalTraining]
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-  <div className="lg:h-1/2 w-3/4 lg:w-1/2 relative rounded-7 flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl">
-    <div className="relative h-64 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
-      <div className="absolute bg-dark h-64 inset-0 flex items-center justify-center">
-        <img
-          src={imgArray[img]}
-          alt="card-image" 
-          className="w-full rounded-t-7 h-full max-h-full object-cover"/>
-      </div>
-      <div className="absolute inset-0 rounded-t-7 bg-gray-800 opacity-50"></div>
-      <h1 className="absolute inset-0 text-white text-lg"></h1>
+  <div className="h-[90vmin] w-[90vmin] max-w-[1400px] max-h-[800px] relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-rounded-6 overflow-hidden">
+    
+    {/* Top half - Image */}
+    <div className="absolute top-0 left-0 right-0 h-1/2 overflow-hidden">
+      <img
+        src={imgArray[img]}
+        alt="card-image" 
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gray-800 opacity-50"></div>
     </div>
-  <div className="p-8">
-  <button
-          onClick={onClose}
-          className="absolute z-20 top-4 right-8 text-xl text-white hover:text-gray-300"
-        >
-          &times;
-        </button>
-        
-        {children}
-  </div>
-  
-</div>  
+    
+    {/* Bottom half - Content */}
+    <div className="relative top-1/2 left-1/2 h-1/2 transform  -translate-x-1/2 justify-start  p-6 flex flex-col">
+      {children}
+    </div>
 
-</div>  
+    {/* Close button */}
+    <button 
+      onClick={onClose} 
+      className="absolute top-0 right-8 text-white z-10 text-center text-lg transform translate-x-1/2 rounded-full p-2"
+    >
+      X</button>
+  </div>
+</div>
     
   );
 };

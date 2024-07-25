@@ -97,7 +97,7 @@ export default function Landing() {
   return (
       <div id="landing" className="overflow-hidden" >
 
-         <div id="main" className="relative h-screen w-full min-h-[600px] md:min-h-[800px] md:h-screen">
+         <div id="main" className="relative h-screen w-full min-h-[600px] md:min-h-[700px] md:h-screen">
            {/* Background gradient */}
            <div className="absolute inset-0 w-full h-full">
             <div className='h-1/2 relative md:hidden'>
@@ -115,7 +115,7 @@ export default function Landing() {
             
            
             <div className='flex justify-center align-baseline row-start-3 row-end-5'>
-              <h1 className="text-left lg:text-5xl col-span-2 text-4xl 2xl:text-5xl md:w-1/2 font-extrabold ">Enhance Your<br/>Environmental 
+              <h1 className="text-left  col-span-2 text-4xl md:w-1/2 font-extrabold ">Enhance Your<br/>Environmental 
                 <TextTransition ><span className="award-winning-gradient">{traits[index % traits.length]}</span></TextTransition>
               </h1>
             </div>
@@ -139,7 +139,7 @@ export default function Landing() {
             <div className='relative col-start-2 hidden md:block  row-start-3 row-end-6' >
               <div className='inline-block p-4>'>
                 <div className='relative'>
-                  <img className='relative  z-10 w-[400px] xl:w-[600px] h-full rounded-rounded-6' src={VictorFieldImg} ></img>
+                  <img className='relative  z-10 w-[400px]  h-full rounded-rounded-6' src={VictorFieldImg} ></img>
                   <div className='absolute h-full w-full top-0 left-0 rounded-rounded-6 bg-blue-rect-landing opacity-50 transform translate-x-3 translate-y-3'></div>
                   
                 </div>
@@ -239,26 +239,26 @@ export default function Landing() {
                       </div>
                       
                     </div>
-                    <div className='grid items-end max-w-[1900px] z-30 grid-cols-1 w-full px-10 p-20 pt-48 space-y-8 lg:space-y-0 lg:space-x-8 lg:grid-cols-3'>
+                    <div className='grid items-end max-w-[1900px] z-30 grid-cols-1 w-full px-10 p-10 pt-16 space-y-8 lg:space-y-0 lg:space-x-8 lg:grid-cols-3'>
                       <m.div
-                        initial={{opacity: 0, y: '100%'}}
+                        initial={{opacity: 0, y: '50%'}}
                         whileInView={{opacity: 1, y: 0}}
                         transition={{ duration: 0.8, ease: 'easeOut' }}
-                        viewport={{ once: true, amount: .3}}>
+                        viewport={{ once: true, amount: 0.01}}>
                         <StatsCard bg='bg-Card-Light-Gray' title='5 Patents' subtitle='For innovative environmental technologies' text='A testament to our advacements in the field.' height='72' />
                       </m.div>
                       <m.div
-                      initial={{opacity: 0, y: '100%'}}
+                      initial={{opacity: 0, y: '50%'}}
                       whileInView={{opacity: 1, y: 0}}
                       transition={{delay: 1, duration: 0.8, ease: 'easeOut' }}
-                      viewport={{ once: true, amount: .3}}>
+                      viewport={{ once: true, amount: 0.01}}>
                         <StatsCard bg='bg-Powder-Blue' title='30 Years' subtitle='Professional Experience' text='Researching and developing modern environmental solutions'  height='96'/>
                       </m.div>
                       <m.div
-                      initial={{opacity: 0, y: '100%'}}
+                      initial={{opacity: 0, y: '50%'}}
                       whileInView={{opacity: 1, y: 0}}
                       transition={{delay:0.5, duration: 0.8, ease: 'easeOut' }}
-                      viewport={{ once: true, amount: .3}}>
+                      viewport={{ once: true, amount: 0.01}}>
                         <StatsCard bg='bg-[#5DBAEF]' title='150 Articles' subtitle='Technical Articles and Reports' text='Including 30 journal publications'  height='96'/>
                       </m.div>
                       
