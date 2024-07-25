@@ -6,10 +6,10 @@ import './ContactForm.css'
 import { useState } from 'react';
 import React from 'react';
 import Footer from './Footer';
+import Perlin from '../../assets/Perlin.png'
 
 import emailjs from '@emailjs/browser'
 
-const Perlin = `${import.meta.env.VITE_API_BASE_URL}/wp-content/uploads/2024/06/Perlin-contour-1.png`
 const defaultTitle = "Let's uncomplicate your environmental challenges"
 const defaultText = "Think we'd be a good addition to your team? Tell us about your project below."
 
