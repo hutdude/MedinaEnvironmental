@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import DOMPurify from 'dompurify';
 import './LinkedIn.css'
-import { Link } from 'react-router-dom';
 import { ArrowDownCircleIcon } from '@heroicons/react/24/outline';
 
 const Whitepapers = () => {

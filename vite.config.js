@@ -1,32 +1,30 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import commonjs from '@rollup/plugin-commonjs';
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      'react': 'react',
-    }
-  },
+  plugins: [react(),
+    commonjs()
+  ],
+  
   optimizeDeps: {
-    include: ['react-pdf', 'react-icons']
-  },
-  define: {
-    'process.env.NODE_ENV': JSON.stringify(process.env.VITE_ENVIRONMENT || 'development')
+    include: ['react-pdf']
   },
   build: {
     commonjsOptions: {
-      include: [/react-pdf/, /pdfjs-dist/, /react-icons/, /node_modules/],
+      include: [/react-pdf/, /pdfjs-dist/, /react-icons/]
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      input: 'src/main.jsx',
       output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-        },
+        dir: 'dist',
+        format: 'es'
       },
-    },
+      plugins: [
+        commonjs()
+      ]
+    }
   },
   base: '/',
   server: {
