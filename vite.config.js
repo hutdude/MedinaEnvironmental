@@ -16,7 +16,7 @@ export default defineConfig({
       include: [/react-pdf/, /pdfjs-dist/, /react-icons/]
     },
     rollupOptions: {
-      input: 'src/main.jsx',
+      input: 'index.html',
       output: {
         dir: 'dist',
         format: 'es'
