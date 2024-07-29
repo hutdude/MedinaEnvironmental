@@ -14,7 +14,7 @@ iconMaps.set('nonprofits', nonprofits)
 
 const ClientCategory = ({ icon, text }) => {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center py-8 md:py-16">
       <div className="">
         {/* Replace 'IconComponent' with your actual icon component */}
         <img src={iconMaps.get(icon)} className="h-24 xl:h-32" />

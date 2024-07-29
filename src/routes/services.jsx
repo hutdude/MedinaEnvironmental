@@ -8,7 +8,7 @@ import '../components/shared/gradients.css'
 import {motion as m,stagger, useAnimation, useInView} from 'framer-motion'
 import SpecialtiesSection from "../components/services/SpecialtiesSection";
 import './services.css'
-import ScrollAnimatedSection from "../components/services/AnimatedScrollComponent";
+import SEO from "../components/shared/SEO";
 
 export default function Services() {
   const { currentPage, setCurrentPage } = useContext(PageContext);
@@ -20,6 +20,12 @@ export default function Services() {
 
 return (
   <div id="services" className="overflow-hidden" >
+    <SEO 
+          siteTitle="Medina Environmental | Services"
+          siteDescription="Expert environmental services: wastewater solutions, project management, engineering, technical writing & training. Medina Environmental's 30+ years of innovation at your service. Discover how we can help!"
+          siteUrl="https://www.medinaenvironmental.com/services"
+          // ogImage={beforeAfter}
+        />
     <div id="main" className="relative h-screen w-full min-h-[600px] md:min-h-[700px]">
         <h1 className='absolute max-w-[800px] w-full lg:w-auto px-8 top-1/2 left-1/2 text-3xl lg:text-4xl xl:text-5xl text-center transform -translate-y-1/2 -translate-x-1/2 text-Dark-Navy'>
           <span className='text-Electric-Blue inline-flex overflow-hidden'>
@@ -49,68 +55,69 @@ return (
 <div id="scrollsections" className="h-fit ">
   {/* <ScrollAnimatedSection /> */}
 </div>
-    <div id="services" className="relative h-full w-screen">
-        
-      
-      <div className="gap-96 pb-64 py-32 lg:py-64 bg-white grid items-center grid-cols-1 lg:grid-cols-7 grid-rows-7 lg:grid-rows-5 h-full w-full lg:gap-64 justify-items-center">
-        <h2 className="font-bold text-lg text-Dark-Navy text-center row-start-1 lg:row-start-3 lg:col-start-3 lg:col-end-6 w-full">Click on a service to learn more</h2>
-        <div className="row-start-2 lg:col-start-4 lg:row-start-1">
+<div id="services" className="w-screen h-full bg-white">
+  <div  className="relative  w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="py-12 sm:py-16 lg:py-24 grid gap-8 sm:gap-12 lg:gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
+          <h2 className="font-bold text-lg text-Dark-Navy text-center col-span-full mb-8">
+            Click on a service to learn more
+          </h2>
+  
           <ServicePopup
             title="Engineering & Design"
             text="We bolster engineering teams with industry expertise, forward thinking, and technological advancements."
             buttonClasses="service-popup"
             image="0"
             gradient="small-blue-gradient"
-            fontSize="8" />
-        </div>
-        <div className="row-start-3 lg:col-start-2 lg:row-start-2">
+            fontSize="8"
+          />
+  
           <ServicePopup
             title="Research & Development"
-            text="We’re committed to advancing solutions for water treatment and environmental remediation.
-             As evidence of our commitment, look no further than our 5 patents in collaboration with the AERDC. "
+            text="We're committed to advancing solutions for water treatment and environmental remediation. As evidence of our commitment, look no further than our 5 patents in collaboration with the AERDC."
             buttonClasses="service-popup"
             image="1"
             gradient="green-pearl-gradient"
-            fontSize="8"/>
-        </div>
-        <div className="row-start-4 lg:col-start-6 lg:row-start-2">
+            fontSize="8"
+          />
+  
           <ServicePopup
             title="Project Management"
             text="Let us lead your team to environmental success. We'll oversee your project from its earliest stages of conceptualization all the way to completion."
             buttonClasses="service-popup"
             image="2"
             gradient="pearl-blue-gradient"
-            fontSize="8"/>
-        </div>
-        <div className="row-start-5 lg:col-start-2 lg:row-start-4">
+            fontSize="8"
+          />
+  
           <ServicePopup
             title="Environmental Consulting"
             text="We help businesses and organizations navigate ecological regulations and sustainability challenges. Our expert services provide tailored solutions to minimize your environmental impact while ensuring compliance."
             buttonClasses="service-popup"
             image="3"
             gradient="small-blue-gradient"
-            fontSize="8"/>
-        </div>
-        <div className="row-start-6 lg:col-start-6 lg:row-start-4">
+            fontSize="8"
+          />
+  
           <ServicePopup
             title="Solutions & Products"
             text="We provide research, development, and testing of novel solutions for water treatment and environmental remediation. Medina has 5 patents in collaboration with the AERDC."
             buttonClasses="service-popup"
             image="4"
             gradient="green-pearl-gradient"
-            fontSize="8"/>
-        </div>
-        <div className="row-start-7 lg:col-start-4 lg:row-start-5">
+            fontSize="8"
+          />
+  
           <ServicePopup
             title="Technical Writing & Training"
-            text="With over 150 publications, Dr. Medina is ready to collaborate on research papers and jounral entries. Or, let us help educate your team or students on environmental/wastewater concepts in an easy-to-understand way."
+            text="With over 150 publications, Dr. Medina is ready to collaborate on research papers and journal entries. Or, let us help educate your team or students on environmental/wastewater concepts in an easy-to-understand way."
             buttonClasses="service-popup"
             image="5"
             gradient="pearl-blue-gradient"
-            fontSize="7"/>
+            fontSize="7"
+          />
         </div>
       </div>
-    </div>
+</div>
 
    
 

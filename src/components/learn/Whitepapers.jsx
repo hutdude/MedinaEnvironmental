@@ -63,15 +63,17 @@ const Whitepapers = () => {
   const papersToShow = expanded ? papers : papers.slice(0, 2);
 
   return (
-    <div className='bg-Dark-Navy p-4'>
-      <h1 className="text-2xl text-center font-bold">
+    <div className="bg-white py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <div className=' p-4'>
+      <h1 className="text-2xl text-Dark-Navy text-center font-bold">
           Download our Whitepapers
         </h1>
       <div className='mx-auto justify-items-center grid max-w-2xl grid-cols-1 gap-y-16 border-t border-gray-200 py-10 sm:pt-16 lg:mx-8 lg:max-w-none xl:grid-cols-2'>
       {papersToShow.map((paper) => {
         return (
           <div key={paper.id} className="w-full max-w-xl mx-auto flex flex-col items-center">
-            <h3 className='text-white text-center font-bold text-lg mb-2'>{paper.title.rendered}</h3>
+            <h3 className='text-Dark-Navy text-center font-bold text-lg mb-2'>{paper.title.rendered}</h3>
             <button
               type='button'
               onClick={() => handleDownload(paper.acf.pdf, `${paper.title.rendered}.pdf`)}
@@ -96,6 +98,8 @@ const Whitepapers = () => {
           </button>
         </div>
       )}
+    </div>
+    </div>
     </div>
   );
 };

@@ -7,7 +7,7 @@ import ContactForm from "../components/shared/ContactForm.jsx";
 import '../components/shared/gradients.css'
 import Noise from "../components/shared/Noise.jsx";
 import PDFViewer from "../components/shared/pdfviewer.jsx";
-import sf330 from "../assets/sf330.pdf"
+import SEO from "../components/shared/SEO.jsx";
 
 
 export default function Projects() {
@@ -40,6 +40,12 @@ export default function Projects() {
 
   return (
     <div id="projects" className="overflow-hidden">
+      <SEO 
+          siteTitle="Medina Environmental | Projects"
+          siteDescription="Previous success is the best resume, so here's ours. Discover how we've helped others squash their environmental problems and see how we can do the same for you."
+          siteUrl="https://www.medinaenvironmental.com/projects"
+          // ogImage={beforeAfter}
+        />
       <div id="main" className="relative h-screen w-full min-h-[600px]  md:min-h-[800px] ">
         
         <h1 className='absolute max-w-[900px] w-full lg:w-auto px-8 top-1/2 left-1/2 text-3xl lg:text-4xl xl:text-5xl text-center transform -translate-y-1/2 -translate-x-1/2 text-Dark-Navy'>

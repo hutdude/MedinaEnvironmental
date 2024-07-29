@@ -15,31 +15,16 @@ import { PageContext } from "../main.jsx";
 import TextTransition, {presets} from "react-text-transition";
 import '../components/shared/gradients.css';
 import {motion as m} from 'framer-motion'
-
-function Marquee({children}) {
-  return (
-    <div className="scroll-container">
-      <div className="flex w-max scroll-marquee">
-        {children}
-        {children}
-        {children}
-      </div>
-    </div>
-  )
-}
+import Ripples from '../assets/ripples.png'
+import SEO from "../components/shared/SEO.jsx";
 
 export default function Landing() {
   const { currentPage, setCurrentPage } = useContext(PageContext);
   useEffect(() => {
     setCurrentPage("home");
   }, []); 
-  
-  const [imageWidth, setImageWidth] = useState(0); // State to hold image width
-  const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
-  const MedinaDrop = apiUrl + '/wp-content/uploads/2024/06/LogoNoBackgroundHighQuality.png'
-  const Ripples = apiUrl + '/wp-content/uploads/2024/06/ripples.png'
-  const divRef = useRef(null);
+
   const location = useLocation();
 
   const [index, setIndex] = React.useState(0);
@@ -96,7 +81,12 @@ export default function Landing() {
 
   return (
       <div id="landing" className="overflow-hidden" >
-
+        <SEO 
+          siteTitle="Medina Environmental | Home"
+          siteDescription="Bolster your project with Medina Environmental's expertise in solutions, research, and project management. Transform environmental challenges into opportunities."
+          siteUrl="https://www.medinaenvironmental.com"
+          ogImage={VictorFieldImg}
+        />
          <div id="main" className="relative h-screen w-full min-h-[600px] md:min-h-[700px] md:h-screen">
            {/* Background gradient */}
            <div className="absolute inset-0 w-full h-full">
@@ -121,25 +111,12 @@ export default function Landing() {
             </div>
             <div className=' row-start-5 row-end-6 align-top md:col-span-full '>
               
-              
-              {/* OLD MARQUEE BACKUP */}
-                {/* <Marquee className='pr-12 scroll-marquee'>
-                  {traits.map((item) => (<div className='flex items-center ' key={item}>
-                  
-                    <h2 className='text-4xl tracking-widest text-Electric-Blue font-merriweather px-24'>
-                      {item}
-                    </h2>
-                    <img className="h-10 w-auto"src={MedinaDrop}></img>
-                  </div>
-                  ))}
-                </Marquee> */}
-              
             </div>
             
             <div className='relative col-start-2 hidden md:block  row-start-3 row-end-6' >
               <div className='inline-block p-4>'>
                 <div className='relative'>
-                  <img className='relative  z-10 w-[400px]  h-full rounded-rounded-6' src={VictorFieldImg} ></img>
+                  <img className='relative  z-10 xl:w-[400px] w-[300px]  h-full rounded-rounded-6' src={VictorFieldImg} ></img>
                   <div className='absolute h-full w-full top-0 left-0 rounded-rounded-6 bg-blue-rect-landing opacity-50 transform translate-x-3 translate-y-3'></div>
                   
                 </div>
@@ -166,12 +143,12 @@ export default function Landing() {
           </div>
         </div>
 
-        <div className='w-full py-96 bg-Dark-Navy text-white' id="quote">
+        <div className='w-full py-64 bg-Dark-Navy text-white' id="quote">
             <Quote />
          </div>
 
         {/* IMPACT SECTION */}
-        <div id="impact" className='relative h-200vh w-full flex items-center justify-center personal-gradient'>
+        <div id="impact" className='relative h-fit w-full flex items-center justify-center personal-gradient'>
         <img
               src={Ripples}
               alt="Ripple Effect"

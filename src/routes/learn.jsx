@@ -4,12 +4,13 @@ import LinkedInFeed from "../components/learn/LinkedIn";
 import { IoChevronDownOutline } from "react-icons/io5";
 import ContactForm from "../components/shared/ContactForm";
 import YouTubeGrid from "../components/learn/YouTube";
-import Button from "../components/shared/Button";
+import educationalTraining from '../assets/educational-training.jpg'
 import researchgate from '../assets/researchgate-logo.svg'
 import { Link } from "react-router-dom";
 import '../components/shared/gradients.css'
 import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 import Whitepapers from "../components/learn/Whitepapers";
+import SEO from "../components/shared/SEO";
 
 
   export default function Learn() {
@@ -20,6 +21,12 @@ import Whitepapers from "../components/learn/Whitepapers";
     
   return (
     <div id="learn" className="overflow-hidden" >
+      <SEO 
+          siteTitle="Medina Environmental | Learn"
+          siteDescription="Explore Medina Environmental's knowledge hub: Watch expert videos, connect on LinkedIn, and dive into our research papers. Expand your environmental expertise with our curated resources."
+          siteUrl="https://www.medinaenvironmental.com/learn"
+          ogImage={educationalTraining}
+        />
      <div id="main" className="relative h-screen w-full min-h-[600px]  md:min-h-[800px] ">
         
         <h1 className='absolute max-w-[800px] w-full lg:w-auto px-8 top-1/2 left-1/2 text-3xl lg:text-4xl xl:text-5xl text-center transform -translate-y-1/2 -translate-x-1/2 text-Dark-Navy'>
@@ -70,7 +77,7 @@ import Whitepapers from "../components/learn/Whitepapers";
       </div>
 
       <LinkedInFeed />
-
+      
       <div id="whitepapers">
         <Whitepapers />
       </div>

@@ -1,21 +1,17 @@
-import Button from '../components/shared/Button'
-import TextureMesh from '../components/shared/BlueAnimation'
 import ValueBubble from '../components/about/ValueBubble';
 import React, {useEffect, useContext} from 'react';
 import { PageContext } from '../main';
-import noise from '../assets/noise.png'
 import '../components/shared/BlueAnimation.css';
 import './about.css'
-import TimelineItem from '../components/about/TimelineItem';
 import Events from '../components/about/Events';
 import ContactForm from '../components/shared/ContactForm';
-import OptimizedBackground from '../components/shared/AnimatedBackground';
 import victorField from '../assets/VictorFieldHat.jpg'
 import beforeAfter from '../assets/before-and-after.jpg'
 import vmpets from '../assets/VM-PETS.jpg'
 import Noise from '../components/shared/Noise';
 import AwardTimeline from '../components/about/AwardTimeline';
 import { IoChevronDownOutline } from "react-icons/io5";
+import SEO from '../components/shared/SEO';
 
 export default function About() {  
 
@@ -26,7 +22,12 @@ export default function About() {
   
   return (
     <div id="about" className="overflow-hidden" >
-
+      <SEO 
+          siteTitle="Medina Environmental | About"
+          siteDescription="Discover why Medina Environmental Company is your irreplaceable ally for wastewater and environmental challenges. 30+ years of expertise, innovation, and research. Learn more!"
+          siteUrl="https://www.medinaenvironmental.com/about"
+          ogImage={beforeAfter}
+        />
       <div id="main" className="relative h-screen w-full min-h-[600px]  md:min-h-[700px] ">
         
         <h1 className='absolute max-w-[800px] w-full lg:w-auto px-8 top-1/2 left-1/2 text-3xl lg:text-4xl xl:text-5xl text-center transform -translate-y-1/2 -translate-x-1/2 text-Dark-Navy'>Discover the <span className='text-Electric-Blue'>values</span> and <span className='text-Electric-Blue'>stories</span> behind MECS</h1>
@@ -119,7 +120,7 @@ export default function About() {
           When working with MECS, you will interact directly with our CEO Dr. Medina: no need to fool with corporate run-arounds. We’ve proven our commitment to Environmental Solutions over the past <b>30 years</b> with a proven track record of <b>130+ technical presentations</b>,  150+ technical articles/reports, and <b>5 patents</b> for environmental technologies.
           </p>
         </div>
-        <div className='w-full p-36 lg:p-12 flex justify-center max-h-[800px]'>
+        <div className='w-full p-8 lg:p-12 flex justify-center max-h-[800px]'>
           <img 
             className="rounded-7 object-cover w-full h-full max-w-[900px] max-h-[500px]" 
             src={vmpets} 
