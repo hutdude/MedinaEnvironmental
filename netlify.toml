@@ -10,7 +10,7 @@
   status = 200
 
 [[redirects]]
-  from = "medinaenvironmental.netlify.app/*"
+  from = "https://medinaenvironmental.netlify.app/*"
   to = "https:///www.medinaenvironmentalcompany.com/:splat"
   status = 301
   force = true

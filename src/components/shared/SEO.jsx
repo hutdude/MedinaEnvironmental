@@ -17,7 +17,7 @@ const SEO = ({ siteTitle, siteDescription, siteUrl, ogImage, twitterImage, isHom
             {
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "${siteName}",
+              "name": "${siteTitle}",
               "url": "${siteUrl}",
               ${isHomePage ? `"potentialAction": {
                 "@type": "SearchAction",
