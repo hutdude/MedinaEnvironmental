@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import DOMPurify from 'dompurify';
 import './LinkedIn.css'
 
@@ -8,6 +8,7 @@ const LinkedInFeed = ({showAll}) => {
   const [posts, setPosts] = useState(null);
   const [loading, setLoading] = useState(true);
   const [expanded, setExpanded] = useState(showAll);
+  const feedRef = useRef(null);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -26,13 +27,15 @@ const LinkedInFeed = ({showAll}) => {
         // Scroll to the element after posts are loaded
         if (location.hash) {
           const id = location.hash.replace('#', '');
-          const element = document.getElementById(id);
-          if (element) {
-            toggleExpanded();
-            setTimeout(() => {
-              element.scrollIntoView({  behavior: 'smooth' });
-            }, 100);
-          }
+          setTimeout(() => {
+            const element = document.getElementById(id);
+            if (element) {
+              setExpanded(true);
+              setTimeout(() => {
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }, 100);
+            }
+          }, 500); // Increased delay to ensure DOM is ready
         }
       } catch (error) {
         console.error('Error fetching posts:', error);
@@ -40,7 +43,14 @@ const LinkedInFeed = ({showAll}) => {
       }
     };
     fetchPosts();
-  }, [location.hash]);
+  }, []);
+
+  useEffect(() => {
+    if (feedRef.current) {
+      feedRef.current.style.opacity = expanded ? '1' : '0';
+      feedRef.current.style.maxHeight = expanded ? '100000px' : '0';
+    }
+  }, [expanded]);
 
   const sanitizeAndValidateEmbed = (embedCode) => {
     const sanitized = DOMPurify.sanitize(embedCode, {
