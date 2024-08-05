@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import medinadrop from '../../assets/MedinaDrop.svg'
 
-const SEO = ({ siteTitle, siteDescription, siteUrl, ogImage, twitterImage }) => {
+const SEO = ({ siteTitle, siteDescription, siteUrl, ogImage, twitterImage, isHomePage=false }) => {
   return (
     <Helmet>
       <html lang="en" />
@@ -10,6 +10,36 @@ const SEO = ({ siteTitle, siteDescription, siteUrl, ogImage, twitterImage }) => 
       <title>{siteTitle}</title>
       <meta name="description" content={siteDescription} />
       <link rel="canonical" href={siteUrl} />
+
+      {/* Schema.org structured data */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "${siteName}",
+              "url": "${siteUrl}",
+              ${isHomePage ? `"potentialAction": {
+                "@type": "SearchAction",
+                "target": "${siteUrl}search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              },` : ''}
+              "subjectOf": [
+                {
+                  "@type": "WebPage",
+                  "name": "Services",
+                  "url": "${siteUrl}services"
+                },
+                {
+                  "@type": "WebPage",
+                  "name": "About",
+                  "url": "${siteUrl}about"
+                }
+                // Add more pages as needed
+              ]
+            }
+          `}
+          </script>
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />

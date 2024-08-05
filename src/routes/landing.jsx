@@ -88,6 +88,7 @@ export default function Landing() {
           siteDescription="Bolster your project with Medina Environmental's expertise in solutions, research, and project management. Transform environmental challenges into opportunities."
           siteUrl="https://www.medinaenvironmental.com"
           ogImage={VictorFieldImg}
+          isHomePage={true}
         />
         
          <div id="main" className="relative h-screen w-full min-h-[600px] md:min-h-[700px] md:h-screen">
