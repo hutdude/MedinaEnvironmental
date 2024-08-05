@@ -1,7 +1,6 @@
-import { SitemapStream, streamToPromise } from 'sitemap'
-import { Readable } from 'stream'
-import fs from 'fs'
-
+const { SitemapStream, streamToPromise } = require('sitemap');
+const { Readable } = require('stream');
+const fs = require('fs');
 
 const routes = [
     { url: '/', changefreq: 'daily', priority: 1 },
