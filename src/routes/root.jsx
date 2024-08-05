@@ -3,11 +3,16 @@ import Navbar from '../components/shared/Navbar'
 import AnimatedBackgound from "../components/shared/AnimatedBackground";
 import SEO from "../components/shared/SEO";
 import medinadrop from '../assets/MedinaDrop.svg'
-export default function Root() {
+import { Toaster, toast } from "react-hot-toast";
 
+export default function Root() {
+    
 
     return (
       <>
+      <div>
+        <Toaster />
+      </div>
       <SEO
         siteTitle="Medina Environmental"
         siteDescription="Medina Environmental: 30+ years solving wastewater and remediation challenges. We offer innovative solutions for companies and agencies. Conquer your environmental issues today!"

@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import DOMPurify from 'dompurify';
 import './LinkedIn.css'
 
-const LinkedInFeed = () => {
+const LinkedInFeed = ({showAll}) => {
   const timestamp = Date.now();
   const postsURL = `/api/wp-json/wp/v2/linkedinposts?acf_format=standard&_fields=id,title,acf&timestamp=${timestamp}`;
   const [posts, setPosts] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(showAll);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -22,13 +22,25 @@ const LinkedInFeed = () => {
         setPosts(postsData);
         setLoading(false);
         console.log('posts', postsData);
+
+        // Scroll to the element after posts are loaded
+        if (location.hash) {
+          const id = location.hash.replace('#', '');
+          const element = document.getElementById(id);
+          if (element) {
+            toggleExpanded();
+            setTimeout(() => {
+              element.scrollIntoView({  behavior: 'smooth' });
+            }, 100);
+          }
+        }
       } catch (error) {
         console.error('Error fetching posts:', error);
         setLoading(false);
       }
     };
     fetchPosts();
-  }, []);
+  }, [location.hash]);
 
   const sanitizeAndValidateEmbed = (embedCode) => {
     const sanitized = DOMPurify.sanitize(embedCode, {
@@ -60,7 +72,7 @@ const LinkedInFeed = () => {
   }
 
   const postsToShow = expanded ? posts : posts.slice(0, 2);
-
+  
   return (
     <div className='bg-Dark-Navy p-4'>
       <h1 className="text-2xl text-center font-bold">
@@ -70,7 +82,7 @@ const LinkedInFeed = () => {
         {postsToShow.map((post, index) => {
           const validEmbed = sanitizeAndValidateEmbed(post.acf.embed);
           return validEmbed ? (
-            <div key={post.id} className="linkedin-post w-full max-w-xl mx-auto flex flex-col items-center">
+            <div key={post.id} id={"linked-in-" + post.id} className="linkedin-post w-full max-w-xl mx-auto flex flex-col items-center">
               <h3 className='text-white text-center font-bold text-lg mb-2'>{post.title.rendered}</h3>
               <div className='overflow-y-auto relative' dangerouslySetInnerHTML={{ __html: validEmbed }} />
             </div>

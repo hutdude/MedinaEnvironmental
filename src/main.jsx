@@ -14,7 +14,9 @@ import Services from './routes/services';
 import Projects from './routes/projects';
 import Learn from './routes/learn';
 import Coming from './routes/coming';
-import { BackgroundProvider } from './BackgroundContext.jsx';import {pdfjs} from 'react-pdf'
+import { BackgroundProvider } from './BackgroundContext.jsx';
+import {pdfjs} from 'react-pdf'
+
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.mjs',

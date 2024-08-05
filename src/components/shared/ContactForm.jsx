@@ -7,6 +7,7 @@ import { useState } from 'react';
 import React from 'react';
 import Footer from './Footer';
 import Perlin from '../../assets/Perlin.png'
+import toast from 'react-hot-toast';
 
 import emailjs from '@emailjs/browser'
 
@@ -33,25 +34,32 @@ export default function ContactForm({title=defaultTitle, text=defaultText}) {
         } = useForm();
         
         const onSubmit = async (data) => {
-            
             const { name, email, phone, message } = data;
-            try {
+            
+            const sendEmail = async () => {
                 const templateParams = {
-                  name,
-                  email,
-                  phone,
-                  message
+                    name,
+                    email,
+                    phone,
+                    message
                 };
                 await emailjs.send(
-                  import.meta.env.VITE_SERVICE_ID,
-                  import.meta.env.VITE_TEMPLATE_ID,
-                  templateParams,
-                  import.meta.env.VITE_PUBLIC_KEY
+                    import.meta.env.VITE_SERVICE_ID,
+                    import.meta.env.VITE_TEMPLATE_ID,
+                    templateParams,
+                    import.meta.env.VITE_PUBLIC_KEY
                 );
                 reset();
-              } catch (e) {
-                console.log(e);
-              }
+            };
+    
+            toast.promise(
+                sendEmail(),
+                {
+                    loading: 'Sending message...',
+                    success: <b>Message sent successfully!</b>,
+                    error: <b>Failed to send message. Please try again.</b>,
+                }
+            );
             
             console.log('Name: ', name);
             console.log('Email: ', email);

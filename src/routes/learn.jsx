@@ -76,7 +76,7 @@ import SEO from "../components/shared/SEO";
 </div>
       </div>
 
-      <LinkedInFeed />
+      <LinkedInFeed showAll={false} />
       
       <div id="whitepapers">
         <Whitepapers />

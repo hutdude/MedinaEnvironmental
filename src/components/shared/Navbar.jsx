@@ -16,6 +16,7 @@ import {
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link, useLocation } from 'react-router-dom';
 import { PageContext } from '../../main';
+import Announcement from './NavbarAnnounce';
 
 
 
@@ -70,9 +71,13 @@ export default function Navbar() {
     return classes.filter(Boolean).join(' ')
   }
   return (
-    <Disclosure as="nav" id="navbar" className={`fixed h-auto top-0 w-full z-50`}>
+    <Disclosure as="nav" id="navbar" className={`fixed h-auto top-0 w-full z-40`}>
       {({ open }) => (
         <>
+        {/* Anouncement section */}
+        <Announcement />
+
+        {/* normal navbar */}
           <div className={`  border-b-4 transition-colors duration-300  pb-2 ${isScrolled && !mobileMenuShown ? 'border-gray-300 bg-Dark-Navy' : ' border-transparent lg:bg-Dark-Navy'} ${mobileMenuShown ? 'bg-Dark-Navy' : ' '}`}>
             <div className="grid grid-cols-3 h-auto pt-2 md:px-10 px-4 items-center ">
               

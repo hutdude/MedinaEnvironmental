@@ -5,6 +5,7 @@ const BackgroundContext = createContext();
 
 export const BackgroundProvider = ({ children }) => {
   const [isBackgroundVisible, setIsBackgroundVisible] = useState(true);
+  const [announcementShown, setAnnouncementShown] = useState(false);
   const [backgroundColors, setBackgroundColors] = useState({
     color1: new THREE.Vector4(0.6823529411764706, 0.8509803921568627, 0.9058823529411765, 1),
     color2: new THREE.Vector4(1, 1, 1, 1),
@@ -16,7 +17,8 @@ export const BackgroundProvider = ({ children }) => {
         isBackgroundVisible, 
         setIsBackgroundVisible, 
         backgroundColors, 
-        setBackgroundColors 
+        setBackgroundColors,
+        announcementShown, setAnnouncementShown
       }}
     >
       {children}

@@ -25,6 +25,7 @@ export default function Landing() {
   }, []); 
 
 
+
   const location = useLocation();
 
   const [index, setIndex] = React.useState(0);
@@ -81,12 +82,14 @@ export default function Landing() {
 
   return (
       <div id="landing" className="overflow-hidden" >
+        
         <SEO 
           siteTitle="Medina Environmental | Home"
           siteDescription="Bolster your project with Medina Environmental's expertise in solutions, research, and project management. Transform environmental challenges into opportunities."
           siteUrl="https://www.medinaenvironmental.com"
           ogImage={VictorFieldImg}
         />
+        
          <div id="main" className="relative h-screen w-full min-h-[600px] md:min-h-[700px] md:h-screen">
            {/* Background gradient */}
            <div className="absolute inset-0 w-full h-full">
