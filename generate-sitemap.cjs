@@ -12,7 +12,7 @@ const routes = [
   ]
   
   // Create a stream to write to
-  const stream = new SitemapStream({ hostname: 'https://www.medinaenvironmental.com' })
+  const stream = new SitemapStream({ hostname: 'https://www.medinaenvironmentalcompany.com' })
   
   // Return a promise that resolves with your XML string
   const sitemap = streamToPromise(Readable.from(routes).pipe(stream)).then((data) =>
