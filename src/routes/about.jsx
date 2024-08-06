@@ -1,7 +1,6 @@
 import ValueBubble from '../components/about/ValueBubble';
 import React, {useEffect, useContext} from 'react';
 import { PageContext } from '../main';
-import '../components/shared/BlueAnimation.css';
 import './about.css'
 import Events from '../components/about/Events';
 import ContactForm from '../components/shared/ContactForm';
@@ -48,7 +47,7 @@ export default function About() {
             Medina Environmental Consulting & Solutions (MECS) is a Minority-Owned Small Business led by Dr. Victor Medina. After earning his Ph.D in Civil/Environmental Engineering from UCLA, Dr. Medina has spent the past<b> 30+ years</b> as a professional Environmental Engineer.
           </p>
         </div>
-        <div className='w-full flex justify-center px-8'><img className="rounded-7 " src={victorField} alt="Dr. Victor Medina smiling with a backdrop of a misty coast."></img></div>
+        <div className='w-full flex justify-center px-8'><img className="rounded-7 " loading='lazy' src={victorField} alt="Dr. Victor Medina smiling with a backdrop of a misty coast."></img></div>
       </div>
 
       <div id="values" className='relative h-full w-screen'>
@@ -95,7 +94,7 @@ export default function About() {
   
       <div id="what we do" className='bg-white py-8 relative grid grid-cols-1 lg:grid-cols-2 items-center h-full min-h-screen bg-about-gradient'>
         
-        <div className='w-full p-12 flex justify-center'><img className="rounded-7 " src={beforeAfter} 
+        <div className='w-full p-12 flex justify-center'><img className="rounded-7 " loading='lazy' src={beforeAfter} 
           alt="Dr. Victor Medina showcases the before and after results of his PFAS filtration system."></img></div>
         <div className='flex flex-col gap-8'>
           <div className='bg-Card-Light-Gray rounded-l-7 ml-12' >
@@ -125,6 +124,7 @@ export default function About() {
           <img 
             className="rounded-7 object-cover w-full h-full max-w-[900px] max-h-[500px]" 
             src={vmpets} 
+            loading='lazy'
             alt="Dr. Victor Medina brandishes his VM PETS filtration device."
           />
         </div>

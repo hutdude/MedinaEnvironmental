@@ -86,7 +86,7 @@ export default function Announcement() {
                     <div className="border-2 sm:border-4 rounded-rounded-3 px-2 py-1 text-xs sm:text-sm whitespace-nowrap">Learn More</div>
                 </a>
             )}
-            <button onClick={handleClose} className="flex-shrink-0 ml-auto">
+            <button onClick={handleClose} aria-label="close-button" className="flex-shrink-0 ml-auto">
                 <IoClose className="h-5 w-5 sm:h-6 sm:w-6"/>
             </button>
         </div>

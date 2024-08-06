@@ -130,9 +130,9 @@ export default function Landing() {
            
             </div>
             <div className='flex justify-center  row-start-6 ' >
-              <h6 className='text-[1.25rem] text-white md:text-md md:w-1/2 text-center md:text-left '>
+              <h2 className='text-[1.25rem] text-white md:text-md md:w-1/2 text-center md:text-left '>
                   <b>Bolster your project</b> with our expertise in environmental solutions, research, and project management
-              </h6>
+              </h2>
             </div>
             <div className="flex justify-center row-start-7 row-end-9 ">
               <div className="flex md:w-1/2">

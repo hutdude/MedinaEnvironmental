@@ -1,11 +1,26 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import commonjs from '@rollup/plugin-commonjs';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(),
-    commonjs()
+    commonjs(),
+    ViteImageOptimizer({
+      png: {
+        quality: 70,
+      },
+      jpeg: {
+        quality: 70,
+      },
+      jpg: {
+        quality: 70,
+      },
+      webp: {
+        lossless: true,
+      },
+    }),
   ],
   
   optimizeDeps: {

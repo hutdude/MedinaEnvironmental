@@ -1,6 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import Navbar from '../components/shared/Navbar'
-import AnimatedBackgound from "../components/shared/AnimatedBackground";
+import LazyAnimation from "../components/shared/AnimatedLazy.jsx";
 import SEO from "../components/shared/SEO";
 import medinadrop from '../assets/MedinaDrop.svg'
 import { Toaster, toast } from "react-hot-toast";
@@ -25,7 +25,7 @@ export default function Root() {
           
         <Navbar />
         <Outlet />
-        <AnimatedBackgound />
+        <LazyAnimation />
       </div>
       </>
     );

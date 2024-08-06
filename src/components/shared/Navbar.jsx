@@ -137,7 +137,7 @@ export default function Navbar() {
                   {open ? (
                     <XMarkIcon className="block h-8 w-8" aria-hidden="true" />
                   ) : (
-                    <img src={menu_fill} className='h-8'></img>
+                    <img src={menu_fill} alt="Open Mobile Menu" className='h-8'></img>
                   )}
                 </DisclosureButton>
               </div>
