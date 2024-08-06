@@ -97,7 +97,8 @@ export default function Landing() {
             <div className='h-1/2 relative md:hidden'>
            
               <div className='absolute inset-0 custom-gradient-2 z-10'></div>
-              <div className= 'absolute inset-0 bg-cover bg-center ' style={{backgroundImage: `url(${VictorFieldImg}`}}></div>
+              <div className= 'absolute inset-0 bg-cover bg-center ' style={{backgroundImage: `url(${VictorFieldImg}`}} 
+              alt="Dr. Victor Medina headshot while sporting a Medina Envrionmental branded shirt, serving as a backdrop for the landing page."></div>
           
               <div className='absolute inset-0 custom-gradient-1'></div>
               </div>
@@ -120,9 +121,10 @@ export default function Landing() {
             <div className='relative col-start-2 hidden md:block  row-start-3 row-end-6' >
               <div className='inline-block p-4>'>
                 <div className='relative'>
-                  <img className='relative  z-10 xl:w-[400px] w-[300px]  h-full rounded-rounded-6' src={VictorFieldImg} ></img>
+                  <img className='relative  z-10 xl:w-[400px] w-[300px]  h-full rounded-rounded-6' 
+                  src={VictorFieldImg}
+                    alt="Dr. Victor Medina headshot while sporting a Medina Environmental branded shirt." ></img>
                   <div className='absolute h-full w-full top-0 left-0 rounded-rounded-6 bg-blue-rect-landing opacity-50 transform translate-x-3 translate-y-3'></div>
-                  
                 </div>
                 </div>
            
@@ -155,7 +157,7 @@ export default function Landing() {
         <div id="impact" className='relative h-fit w-full flex items-center justify-center personal-gradient'>
         <img
               src={Ripples}
-              alt="Ripple Effect"
+              alt="Ripple effect made up of concentric circles that serves as a backdrop to this section."
               className='absolute inset-y-0 h-200vh opacity-50 max-w-none object-center object-cover transform translate-x-[-60vw] scale-105 z-10'
             />
           <div className='relative pb-8 h-full w-full grid grid-cols-1 justify-center px-10 space-y-8'>
@@ -255,7 +257,7 @@ export default function Landing() {
             Interested in the environmental issues we're helping address?
             <br /><br />Check out the resources we've provided.
           </p>
-          <Button text="Learn" newPage={"/learn"}/>
+          <Button text="Visit our Learn Page" newPage={"/learn"}/>
          </div>
 
          

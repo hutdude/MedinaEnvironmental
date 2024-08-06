@@ -19,7 +19,7 @@ const Popup = ({ isOpen, onClose, children, img }) => {
     <div className="absolute top-0 left-0 right-0 h-1/2 overflow-hidden">
       <img
         src={imgArray[img]}
-        alt="card-image" 
+        alt="card-image backdrop" 
         className="w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-gray-800 opacity-50"></div>
@@ -34,6 +34,7 @@ const Popup = ({ isOpen, onClose, children, img }) => {
     <button 
       onClick={onClose} 
       className="absolute top-0 right-8 text-white z-10 text-center text-lg transform translate-x-1/2 rounded-full p-2"
+      aria-label='close-button'
     >
       X</button>
   </div>
@@ -50,6 +51,7 @@ const ServicePopup = ({title, text, buttonClasses, image, gradient, fontSize}) =
       <button
         onClick={() => setIsPopupOpen(true)}
         className={`${buttonClasses}`}
+        aria-label='service bubble button. Will display more information about each service.'
       >
         
       <ServiceBubble text={title}  size='330' gradient={gradient} fontSize={fontSize}/>

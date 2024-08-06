@@ -35,9 +35,13 @@ const Footer = ({}) => {
                           target='_blank'
                           className='text-white rounded-rounded-4 min-h-16 px-3 flex items-center'
                           aria-current={socials[0].current ? 'page' : undefined}
+                          aria-label={`Visit our ${socials[0].name} page`}
                         >
                           
-                            <div className='h-12 pr-8 '>{socials[0].icon}</div>
+                            <div className='h-12 pr-8 '>
+                                {socials[0].icon}
+                                <span className="sr-only">{socials[0].name}</span>
+                            </div>
                         </a>
                         <div className='h-12 border-r-2 border-white' ></div>
                         <a
@@ -45,9 +49,13 @@ const Footer = ({}) => {
                           target='_blank'
                           className='text-white rounded-rounded-4 min-h-16 px-3 flex items-center'
                           aria-current={socials[1].current ? 'page' : undefined}
+                          aria-label={`Visit our ${socials[1].name} page`}
                         >
                           
-                            <div className=' h-14 pl-8 '>{socials[1].icon}</div>
+                            <div className=' h-14 pl-8 '>
+                                {socials[1].icon}
+                                <span className="sr-only">{socials[1].name}</span>
+                            </div>
                         </a>
 
             </div>
