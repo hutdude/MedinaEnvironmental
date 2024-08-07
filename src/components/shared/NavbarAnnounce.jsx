@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import { IoClose } from "react-icons/io5"
-import { GrAnnounce } from "react-icons/gr"
+import { IoClose } from "@react-icons/all-files/io5/IoClose"
+import { GrAnnounce } from "@react-icons/all-files/gr/GrAnnounce"
 import '../shared/gradients.css'
 
 export default function Announcement() {

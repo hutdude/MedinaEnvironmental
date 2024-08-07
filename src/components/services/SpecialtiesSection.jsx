@@ -1,10 +1,12 @@
 // SpecialtiesSection.js
 import React, { useRef } from 'react';
 import { motion as m, useInView } from 'framer-motion';
-import { GiWaterRecycling, GiPoisonBottle, GiMineralPearls } from "react-icons/gi";
-import { TbFountainFilled } from "react-icons/tb";
-import { LiaIndustrySolid } from "react-icons/lia";
-import { FaGlassWater } from "react-icons/fa6";
+import { GiWaterRecycling } from "@react-icons/all-files/gi/GiWaterRecycling";
+import { GiPoisonBottle } from "@react-icons/all-files/gi/GiPoisonBottle";
+import GiMineralPearls from "../../assets/icons/mineral-pearls.svg";
+import TbFountainFilled from "../../assets/icons/fountain.svg";
+import LiaIndustrySolid from "../../assets/icons/building-factory-2.svg";
+import  FaGlassWater  from "../../assets/icons/glass-water-solid.svg";
 import '../shared/gradients.css'
 
 const features = [
@@ -12,31 +14,37 @@ const features = [
     name: 'PFAS',
     description: 'Advanced removal of persistent human-made pollutants for long-term environmental safety.',
     icon: GiWaterRecycling,
+    component: true
   },
   {
     name: 'Algal Blooms',
     description: 'Effective management and prevention of harmful algal proliferation.',
     icon: TbFountainFilled,
+    component: false
   },
   {
     name: 'Cyanide',
     description: 'Specialized treatment for the safe neutralization and removal of cyanide compounds.',
     icon: GiPoisonBottle,
+    component: true
   },
   {
     name: 'Salts',
     description: 'Efficient desalination processes to restore water quality and reduce mineral content.',
     icon: GiMineralPearls,
+    component: false
   },
   {
     name: 'Toxic Industrial Chemicals',
     description: 'Comprehensive solutions for the treatment and elimination of complex industrial contaminants.',
     icon: LiaIndustrySolid,
+    component: false
   },
   {
     name: 'Grey & Blackwater',
     description: 'Advanced purification systems for the reclamation and reuse of domestic and industrial wastewater.',
     icon: FaGlassWater,
+    component: false
   },
 ];
 
@@ -79,7 +87,8 @@ const SpecialtiesSection = () => {
                 <m.div variants={item} className="relative pl-16">
                   <dt className="text-base font-semibold leading-7 text-gray-900 text-shadow">
                     <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-rounded-3 bg-Dodger-Blue">
-                      <feature.icon aria-hidden="true" className="h-6 w-6 text-white" />
+                      {feature.component ? <feature.icon aria-hidden="true" className="h-6 w-6 text-white" /> : 
+                      <img aria-hidden="true" src={feature.icon} style={{filter: 'brightness(0) invert(1)'}} className="h-6 w-6 " ></img>}
                     </div>
                     {feature.name}
                   </dt>

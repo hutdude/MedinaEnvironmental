@@ -1,6 +1,6 @@
 import { PageContext } from "../main";
 import { useContext, useEffect } from "react";
-import { IoChevronDownOutline } from "react-icons/io5";
+import { IoChevronDownOutline } from "@react-icons/all-files/io5/IoChevronDownOutline";
 import ContactForm from "../components/shared/ContactForm";
 import ServicePopup from "../components/services/Popup";
 import Noise from "../components/shared/Noise";

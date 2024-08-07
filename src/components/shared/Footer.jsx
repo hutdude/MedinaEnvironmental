@@ -1,6 +1,6 @@
-import { FaYoutube } from "react-icons/fa";
+import { FaYoutube } from "@react-icons/all-files/fa/FaYoutube";
 
-import { FaLinkedin } from "react-icons/fa";
+import { FaLinkedin } from "@react-icons/all-files/fa/FaLinkedin";
 
 
 const apiUrl = import.meta.env.VITE_API_BASE_URL;

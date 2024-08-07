@@ -7,7 +7,7 @@ import React, { useRef, useEffect, useContext, useState } from 'react';
 import { useLocation } from 'react-router-dom'
 import ClientCategory from '../components/landing/ClientCategory.jsx'
 import ContactForm from '../components/shared/ContactForm.jsx'
-import VictorFieldImg from '../assets/Headshot1.jpg'
+import VictorFieldImg from '../assets/Headshot1.webp'
 import Pipes1 from '../assets/pipes/pipes1.svg'
 import StatsCard from '../components/landing/StatsCard.jsx'
 import Quote from '../components/landing/Quote.jsx'
@@ -15,8 +15,9 @@ import { PageContext } from "../main.jsx";
 import TextTransition, {presets} from "react-text-transition";
 import '../components/shared/gradients.css';
 import {motion as m} from 'framer-motion'
-import Ripples from '../assets/ripples.png'
+import Ripples from '../assets/ripples.webp'
 import SEO from "../components/shared/SEO.jsx";
+import OptimizedImage from "../components/shared/ResponsiveImage.jsx";
 
 export default function Landing() {
   const { currentPage, setCurrentPage } = useContext(PageContext);
@@ -24,7 +25,7 @@ export default function Landing() {
     setCurrentPage("home");
   }, []); 
 
-
+  
 
   const location = useLocation();
 
@@ -97,8 +98,9 @@ export default function Landing() {
             <div className='h-1/2 relative md:hidden'>
            
               <div className='absolute inset-0 custom-gradient-2 z-10'></div>
+              {/* <OptimizedImage className="absolute inset-0 bg-cover bg-center" src={VictorFieldImg} /> */}
               <div className= 'absolute inset-0 bg-cover bg-center ' style={{backgroundImage: `url(${VictorFieldImg}`}} 
-              alt="Dr. Victor Medina headshot while sporting a Medina Envrionmental branded shirt, serving as a backdrop for the landing page."></div>
+               alt="Dr. Victor Medina headshot while sporting a Medina Envrionmental branded shirt, serving as a backdrop for the landing page."></div>
           
               <div className='absolute inset-0 custom-gradient-1'></div>
               </div>
@@ -156,6 +158,7 @@ export default function Landing() {
         {/* IMPACT SECTION */}
         <div id="impact" className='relative h-fit w-full flex items-center justify-center personal-gradient'>
         <img
+              loading="lazy"
               src={Ripples}
               alt="Ripple effect made up of concentric circles that serves as a backdrop to this section."
               className='absolute inset-y-0 h-200vh opacity-50 max-w-none object-center object-cover transform translate-x-[-60vw] scale-105 z-10'

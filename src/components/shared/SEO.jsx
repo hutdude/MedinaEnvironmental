@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import medinadrop from '../../assets/MedinaDrop.svg'
 
 const SEO = ({ siteTitle, siteDescription, siteUrl, ogImage, twitterImage, isHomePage=false }) => {
+  const baseURL = "https://medinaenvironmentalcompany.com"
   return (
     <Helmet>
       <html lang="en" />
@@ -19,21 +20,32 @@ const SEO = ({ siteTitle, siteDescription, siteUrl, ogImage, twitterImage, isHom
               "@type": "WebSite",
               "name": "${siteTitle}",
               "url": "${siteUrl}",
-              ${isHomePage ? `"potentialAction": {
-                "@type": "SearchAction",
-                "target": "${siteUrl}search?q={search_term_string}",
-                "query-input": "required name=search_term_string"
-              },` : ''}
+              
               "subjectOf": [
                 {
                   "@type": "WebPage",
                   "name": "Services",
-                  "url": "${siteUrl}services"
+                  "url": "${siteUrl}"
                 },
                 {
                   "@type": "WebPage",
                   "name": "About",
-                  "url": "${siteUrl}about"
+                  "url": "${baseURL}/about"
+                },
+                {
+                  "@type": "WebPage",
+                  "name": "Services",
+                  "url": "${baseURL}/services"
+                },
+                {
+                  "@type": "WebPage",
+                  "name": "Projects",
+                  "url": "${baseURL}/projects"
+                },
+                {
+                  "@type": "WebPage",
+                  "name": "Learn",
+                  "url": "${baseURL}/learn"
                 }
                 // Add more pages as needed
               ]

@@ -1,8 +1,8 @@
 import React, { useEffect, useContext, useState } from 'react';
 import menu_fill from '../../assets/menu_fill.svg'
-import { FaYoutube } from "react-icons/fa";
+import { FaYoutube } from "@react-icons/all-files/fa/FaYoutube";
 
-import { FaLinkedin } from "react-icons/fa";
+import { FaLinkedin } from "@react-icons/all-files/fa/FaLinkedin";
 import {
   Disclosure,
   DisclosureButton,
@@ -13,7 +13,7 @@ import {
   MenuItems,
   Transition,
 } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 import { Link, useLocation } from 'react-router-dom';
 import { PageContext } from '../../main';
 import Announcement from './NavbarAnnounce';

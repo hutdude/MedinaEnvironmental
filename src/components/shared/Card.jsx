@@ -1,5 +1,5 @@
-import { FaCalendarAlt } from "react-icons/fa";
-import { IoMdPin } from "react-icons/io";
+import { FaCalendarAlt } from "@react-icons/all-files/fa/FaCalendarAlt";
+import { IoMdPin } from "@react-icons/all-files/io/IoMdPin";
 
 export default function Card({title, imageURL, category, location, date, bg, textColor, text} ) {
     return (

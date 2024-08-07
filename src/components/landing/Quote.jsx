@@ -1,5 +1,5 @@
 
-import { FaQuoteLeft } from "react-icons/fa";
+import { FaQuoteLeft } from "@react-icons/all-files/fa/FaQuoteLeft";
 import {motion as m} from 'framer-motion'
 
 

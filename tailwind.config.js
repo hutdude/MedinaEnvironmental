@@ -92,4 +92,5 @@ export default {
   plugins: [
     require('tailwindcss-gradients')
   ],
+  
 }
