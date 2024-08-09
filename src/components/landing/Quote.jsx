@@ -18,7 +18,7 @@ const Quote = ({}) => {
               whileInView={{opacity: 1}}
               transition={{ duration: 0.8, ease: 'easeOut' }}
               viewport={{ once: false, amount: .3}}>
-                <FaQuoteLeft className='absolute top-0 left-0 opacity-10 h-16 w-16'/> 
+                <FaQuoteLeft className='pl-4 absolute top-0 left-0 opacity-10 h-16 w-16'/> 
                 <blockquote className='text-lg'>Our mission is to solve and manage your environmental and water issues in a cost-effective manner while providing excellent customer service, so you can focus your business or mission. <br /> <b>Victor Medina</b>, Ph.D., P.E. CEO  </blockquote>
                 
             </m.div>

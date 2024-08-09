@@ -36,6 +36,21 @@ export default {
       "7": "50px",
     },
     extend: {
+      animation: {
+        slidein: "slidein 300ms ease var(--slidein-delay, 0) forwards"
+      },
+      keyframes: {
+        slidein: {
+          from: {
+            opacity: "0",
+            transform: "translateX(30px)"
+          },
+          to: {
+            opacity: "1",
+            transform: "translateX(0px)"
+          }
+        }
+      },
       backgroundImage: {
         'about-gradient': 'background: linear-gradient(252deg, #D9DAE9 1.49%, #FFF 48.99%);',
         'Blue-Gradient': 'linear-gradient(241deg, #030037 28.67%, #030138 33.27%, #02063B 37.87%, #000D3F 42.47%, #001445 47.06%, #001B4E 51.66%, #002458 56.26%, #002F64 60.86%, #003C71 65.45%, #014B80 70.05%, #055D90 74.65%, #0E70A2 79.25%, #1C87B4 83.84%, #2EA0C6 88.44%, #43BBD9 93.04%, #5ED9EC 97.64%, #7DF9FF 102.23%));'

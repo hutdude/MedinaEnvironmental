@@ -1,5 +1,4 @@
 import React, { useEffect, useContext, useState } from 'react';
-import menu_fill from '../../assets/menu_fill.svg'
 import { FaYoutube } from "@react-icons/all-files/fa/FaYoutube";
 
 import { FaLinkedin } from "@react-icons/all-files/fa/FaLinkedin";
@@ -7,16 +6,11 @@ import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-  Transition,
 } from '@headlessui/react'
-import { XMarkIcon } from '@heroicons/react/24/outline'
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { PageContext } from '../../main';
 import Announcement from './NavbarAnnounce';
+import MenuButton from './MenuButton';
 
 
 
@@ -36,11 +30,12 @@ export default function Navbar() {
     //if mobile menu is shown, disable scrolling. Otherwise enable
     mobileMenuShown ? scrollingDiv.classList.add('overflow-hidden') : scrollingDiv.classList.remove('overflow-hidden') 
     setMobileMenuShown(!mobileMenuShown);
+    
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > window.visualViewport.height - document.getElementById('navbar').clientHeight) {
+      if (window.scrollY >  document.getElementById('navbar').clientHeight) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -131,14 +126,15 @@ export default function Navbar() {
               {/* MOBILE MENU */}
               <div className="ml-auto flex items-center lg:hidden col-start-3">
                 {/* Mobile menu button*/}
-                <DisclosureButton  onClick={togglePanel} className="text-white hover:scale-105 relative inline-flex items-center justify-center p-2 focus:outline-none">
+                <DisclosureButton  onClick={togglePanel} className=" scale-105 relative inline-flex items-center justify-center p-2 ">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
-                  {open ? (
+                  <MenuButton />
+                  {/* {open ? (
                     <XMarkIcon className="block h-8 w-8" aria-hidden="true" />
                   ) : (
                     <img src={menu_fill} alt="Open Mobile Menu" className='h-8'></img>
-                  )}
+                  )} */}
                 </DisclosureButton>
               </div>
             </div>
@@ -147,7 +143,7 @@ export default function Navbar() {
           <DisclosurePanel className="lg:hidden bg-Dark-Navy h-screen">
             
             <div className="space-y-5 px-6 pb-3 pt-2 text-lg text-black font-medium font-outfit tracking-tight">
-              <div className='bg-white rounded-rounded-4'>
+              <div className={`bg-white transform transition-all duration-300 ease-in-out opacity-0  rounded-rounded-4 ${mobileMenuShown ? " animate-slidein  [--slidein-delay:0ms]" : ""}`}>
                 {navigation.map((item) => (
                   <DisclosureButton
                     key={item.name}
@@ -168,24 +164,27 @@ export default function Navbar() {
                 ))}
               </div>
               
-              <div className='bg-white rounded-rounded-4 min-h-16 px-3 flex items-center'>
+              <div className={`bg-white rounded-rounded-4 min-h-16 px-3 flex items-center opacity-0 ${mobileMenuShown ? " animate-slidein  [--slidein-delay:100ms]" : ""}`}>
                 <DisclosureButton
                     key="contact-button"
                     as="a"
                     href="/#contact"
                     className={classNames(
                       ' hover:text-Electric-Blue',
-                      'block px-3 py-3'
+                      'block py-3'
                     )}
                   >
-                    contact us
+                  {"contact us"}
                   </DisclosureButton></div>
-              {socials.map((item) => (
+              {socials.map((item, index) => (
                         <a
                           key={item.name}
                           href={item.href}
                           target='_blank'
-                          className='bg-white rounded-rounded-4 min-h-16 px-3 flex items-center'
+                          className={`bg-white rounded-rounded-4 min-h-16 px-3 flex items-center opacity-0 ${mobileMenuShown ? " animate-slidein " : ""}` }
+                          style={{
+                            '--slidein-delay': `${(index + 1) * 100 + 100}ms`
+                          }}
                           aria-current={item.current ? 'page' : undefined}
                         >
                           <div className='flex justify-between w-full items-center'>
