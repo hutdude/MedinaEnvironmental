@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom'
 import ClientCategory from '../components/landing/ClientCategory.jsx'
 import ContactForm from '../components/shared/ContactForm.jsx'
 import VictorFieldImg from '../assets/Headshot1.webp'
-import Pipes1 from '../assets/pipes/pipes1.svg'
+import Pipes from "../components/landing/Pipes.jsx";
 import StatsCard from '../components/landing/StatsCard.jsx'
 import Quote from '../components/landing/Quote.jsx'
 import { PageContext } from "../main.jsx";
@@ -17,7 +17,8 @@ import '../components/shared/gradients.css';
 import {motion as m} from 'framer-motion'
 import Ripples from '../assets/ripples.webp'
 import SEO from "../components/shared/SEO.jsx";
-import OptimizedImage from "../components/shared/ResponsiveImage.jsx";
+import LazyLoad from "react-lazyload";
+import { forceVisible } from "react-lazyload";
 
 export default function Landing() {
   const { currentPage, setCurrentPage } = useContext(PageContext);
@@ -41,6 +42,7 @@ export default function Landing() {
 
   useEffect(() => {
     const handleScroll = () => {
+      forceVisible();
       const hash = window.location.hash.substring(1);
       const element = document.getElementById(hash);
   
@@ -48,6 +50,10 @@ export default function Landing() {
         setTimeout(() => {
           const navbar = document.getElementById("navbar");
           const navbarHeight = navbar ? navbar.offsetHeight : 0;
+          
+          // Force a layout recalculation
+          element.offsetHeight;
+  
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
   
@@ -56,8 +62,7 @@ export default function Landing() {
             behavior: "smooth"
           });
         }, 100);
-      }
-      else{
+      } else {
         window.scrollTo({
           top: 0,
           behavior: "smooth"
@@ -67,10 +72,8 @@ export default function Landing() {
   
     handleScroll();
   
-    // Add event listener for hash changes
     window.addEventListener('hashchange', handleScroll);
-  
-    // Cleanup
+    
     return () => window.removeEventListener('hashchange', handleScroll);
   }, [location]);
 
@@ -151,106 +154,116 @@ export default function Landing() {
           </div>
         </div>
 
-        <div className='w-full py-64 bg-Dark-Navy text-white' id="quote">
+        <div className='w-full py-32 lg:py-64 bg-Dark-Navy text-white' id="quote">
             <Quote />
          </div>
 
         {/* IMPACT SECTION */}
-        <div id="impact" className='relative h-fit w-full flex items-center justify-center personal-gradient'>
-        <img
-              loading="lazy"
-              src={Ripples}
-              alt="Ripple effect made up of concentric circles that serves as a backdrop to this section."
-              className='absolute inset-y-0 h-200vh opacity-50 max-w-none object-center object-cover transform translate-x-[-60vw] scale-105 z-10'
-            />
-          <div className='relative pb-8 h-full w-full grid grid-cols-1 justify-center px-10 space-y-8'>
-            
-              <div>
-                <h1 className='text-white col-span-1 font-bold text-4xl xl:text-5xl py-12 text-center'>Personal touch.<br/> Large impact.</h1>
-                <p className='text-white col-span-1 text-[1.25rem] text-center'>
-                  Medina Environmental Consulting & Solutions is a Minority-Owned Small Business, meaning
-                  <span className=' text-Electric-Blue font-bold'> personal and authentic </span>
-                  customer service for your project.
-                  <br/><br/>
-                  We’re ready to address the environmental challenges of
-                </p>
+        <LazyLoad once>
+          <div id="impact" className='relative h-fit w-full flex items-center justify-center personal-gradient'>
+          <img
+                loading="lazy"
+                src={Ripples}
+                alt="Ripple effect made up of concentric circles that serves as a backdrop to this section."
+                className='absolute inset-y-0 h-200vh opacity-50 max-w-none object-center object-cover transform translate-x-[-60vw] scale-105 z-10'
+              />
+            <div className='relative pb-8 h-full w-full grid grid-cols-1 justify-center px-10 space-y-8'>
+          
+                <div>
+                  <h1 className='text-white col-span-1 font-bold text-4xl xl:text-5xl py-12 text-center'>Personal touch.<br/> Large impact.</h1>
+                  <p className='text-white col-span-1 text-[1.25rem] text-center'>
+                    Medina Environmental Consulting & Solutions is a Minority-Owned Small Business, meaning
+                    <span className=' text-Electric-Blue font-bold'> personal and authentic </span>
+                    customer service for your project.
+                    <br/><br/>
+                    We’re ready to address the environmental challenges of
+                  </p>
+                </div>
+                  <ClientCategory icon='government' text='Government Agencies' />
+                  <ClientCategory icon='industries' text='Industries' />
+                  <ClientCategory icon='nonprofits' text='Non-Profits' />
+                  <ClientCategory icon='briefcase' text='Businesses' />
               </div>
-                <ClientCategory icon='government' text='Government Agencies' />
-                <ClientCategory icon='industries' text='Industries' />
-                <ClientCategory icon='nonprofits' text='Non-Profits' />
-                <ClientCategory icon='briefcase' text='Businesses' />
+          
             </div>
-            
-          </div>
+        </LazyLoad>
          
-         <div id="collaborate" className='flex flex-col items-start relative h-fit pb-8 px-12 md:px-36 lg:px-48 xl:px-80 2xl:px-96 bg-Dark-Gray w-full'>
-          <div className='w-full items-center justify-center'>
-            <h1 className='font-bold text-4xl xl:text-5xl pt-16 text-white text-center z-10'>Let's <span className=' text-Electric-Blue'>collaborate</span>  on environmental</h1>
-          </div>
-          <div className='rounded-rounded-6 w-full mt-20 bg-Light-Gray'>
-            <div className='p-6 tracking-wider'>
-              <ul className=' text-white font-semibold text-[24px] space-y-6'>
-                <li>Consulting</li>
-                <li>Project Management</li>
-                <li>R & D</li>
-                <li>Solutions & Products</li>
-                <li>Technical Writings</li>
-                <li>Awareness Trainings</li>
-                
-                <li>Engineering</li>
-                <li>Design</li>
-              </ul>
+         <LazyLoad once offset={100}>
+           <div id="collaborate" className='flex flex-col items-start relative h-fit pb-8 px-12 md:px-36 lg:px-48 xl:px-80 2xl:px-96 bg-Dark-Gray w-full'>
+            <div className='w-full items-center justify-center'>
+              <h1 className='font-bold text-4xl xl:text-5xl pt-16 text-white text-center z-10'>Let's <span className=' text-Electric-Blue'>collaborate</span>  on environmental</h1>
             </div>
-          </div>
-
-            <div className='pt-20'><Button text="Our Services" newPage={"/services"} /></div>
-         </div>
+            <div className='rounded-rounded-6 w-full mt-20 bg-Light-Gray'>
+              <div className='p-6 tracking-wider'>
+                <ul className=' text-white font-semibold text-[24px] space-y-6'>
+                  <li>Consulting</li>
+                  <li>Project Management</li>
+                  <li>R & D</li>
+                  <li>Solutions & Products</li>
+                  <li>Technical Writings</li>
+                  <li>Awareness Trainings</li>
+           
+                  <li>Engineering</li>
+                  <li>Design</li>
+                </ul>
+              </div>
+            </div>
+              <div className='pt-20'><Button text="Our Services" newPage={"/services"} /></div>
+           </div>
+         </LazyLoad>
 
          {/* Experience Section */}
-         <div id="experience" className=' bg-white relative w-full'>
-                  <div className='w-full text-Title-Dark-Gray items-center flex flex-col'>
-                    <div className='pt-24 items-center justify-center md:pt-48 max-w-[50ch]'>
-                      <div className='relative inline-block'>
-                        <div className=''>
-                          <h1 className='tracking-wider text-Title-Dark-Gray  text-center font-extrabold'>
+         <LazyLoad once>
+           <div id="experience" className=' bg-white relative w-full'>
+                    <div className='w-full text-Title-Dark-Gray items-center flex flex-col'>
+                      <div className='pt-16 items-center justify-center md:pt-32 max-w-[50ch]'>
+                        <div className='relative inline-block'>
+                        <div className='relative w-full h-full p-4'> {/* Added width, height, and padding for visibility */}
+                          <h1 className='tracking-wider pt-8 text-Title-Dark-Gray text-center font-extrabold'>
                             Experience<br /> That <span className='text-Dodger-Blue'>Shows</span>
                           </h1>
-                          <p className='pt-8 px-12 text-center'>With <span className='font-black'>over 30 years</span> of experience, we’ve learned a thing or two about addressing environmental issues.</p>
+           
+                          <p className='py-8 px-12 text-center'>
+                            With <span className='font-black'>over 30 years</span> of experience, we've learned a thing or two about addressing environmental issues.
+                          </p>
+                          {/* <div className="bg-Pipe-Green absolute  top-0 right-1/4 translate-y-1/2 h-8 w-screen -mr-[50vw]"></div>
+                          <div className="bg-blue-rect-landing absolute bottom-0 translate-y-1/2 left-1/4 h-8 w-screen -ml-[50vw]"></div> */}
                         </div>
-                        {/* <div id="greenPipe" className='absolute h-8 w-screen bottom-[290px] left-[450px]  bg-Pipe-Green'></div>
-                        <div id="greenPipe" className=' shadow-pipe rounded-bl-7 absolute h-screen w-8  bottom-[290px] right-[70px] bg-Pipe-Green'></div>
-                        <div id="bluePipe" className=' absolute h-8 w-screen bottom-[-50px] right-[450px]  bg-Light-Blue'></div>
-                        <div id="bluePipe" className=' shadow-pipe rounded-tr-7 absolute h-96 w-8 translate-y-[18px] left-[70px] bg-Light-Blue'></div> */}
-                        
+                          {/* <div id="greenPipe" className='absolute h-8 w-screen bottom-[290px] left-[450px]  bg-Pipe-Green'></div>
+                          <div id="greenPipe" className=' shadow-pipe rounded-bl-7 absolute h-screen w-8  bottom-[290px] right-[70px] bg-Pipe-Green'></div>
+                          <div id="bluePipe" className=' absolute h-8 w-screen bottom-[-50px] right-[450px]  bg-Light-Blue'></div>
+                          <div id="bluePipe" className=' shadow-pipe rounded-tr-7 absolute h-96 w-8 translate-y-[18px] left-[70px] bg-Light-Blue'></div> */}
+           
+                        </div>
+           
                       </div>
-                      
-                    </div>
-                    <div className='grid items-end max-w-[1900px] z-30 grid-cols-1 w-full px-10 p-10 pt-16 space-y-8 lg:space-y-0 lg:space-x-8 lg:grid-cols-3'>
-                      <m.div
+                      <div className='grid items-end max-w-[1900px] pt-16 z-30 grid-cols-1 w-full px-10  space-y-8 lg:space-y-0 lg:space-x-8 lg:grid-cols-3'>
+                        <m.div
+                          initial={{opacity: 0, y: '50%'}}
+                          whileInView={{opacity: 1, y: 0}}
+                          transition={{ duration: 0.8, ease: 'easeOut' }}
+                          viewport={{ once: true, amount: 0.01}}>
+                          <StatsCard bg='bg-Card-Light-Gray' title='5 Patents' subtitle='For innovative environmental technologies' text='A testament to our advacements in the field.' height='72' />
+                        </m.div>
+                        <m.div
                         initial={{opacity: 0, y: '50%'}}
                         whileInView={{opacity: 1, y: 0}}
-                        transition={{ duration: 0.8, ease: 'easeOut' }}
+                        transition={{delay: 1, duration: 0.8, ease: 'easeOut' }}
                         viewport={{ once: true, amount: 0.01}}>
-                        <StatsCard bg='bg-Card-Light-Gray' title='5 Patents' subtitle='For innovative environmental technologies' text='A testament to our advacements in the field.' height='72' />
-                      </m.div>
-                      <m.div
-                      initial={{opacity: 0, y: '50%'}}
-                      whileInView={{opacity: 1, y: 0}}
-                      transition={{delay: 1, duration: 0.8, ease: 'easeOut' }}
-                      viewport={{ once: true, amount: 0.01}}>
-                        <StatsCard bg='bg-Powder-Blue' title='30 Years' subtitle='Professional Experience' text='Researching and developing modern environmental solutions'  height='96'/>
-                      </m.div>
-                      <m.div
-                      initial={{opacity: 0, y: '50%'}}
-                      whileInView={{opacity: 1, y: 0}}
-                      transition={{delay:0.5, duration: 0.8, ease: 'easeOut' }}
-                      viewport={{ once: true, amount: 0.01}}>
-                        <StatsCard bg='bg-[#5DBAEF]' title='150 Articles' subtitle='Technical Articles and Reports' text='Including 30 journal publications'  height='96'/>
-                      </m.div>
-                      
+                          <StatsCard bg='bg-Powder-Blue' title='30 Years' subtitle='Professional Experience' text='Researching and developing modern environmental solutions'  height='96'/>
+                        </m.div>
+                        <m.div
+                        initial={{opacity: 0, y: '50%'}}
+                        whileInView={{opacity: 1, y: 0}}
+                        transition={{delay:0.5, duration: 0.8, ease: 'easeOut' }}
+                        viewport={{ once: true, amount: 0.01}}>
+                          <StatsCard bg='bg-[#5DBAEF]' title='150 Articles' subtitle='Technical Articles and Reports' text='Including 30 journal publications'  height='96'/>
+                        </m.div>
+           
+                      </div>
                     </div>
-                  </div>
-         </div>
+           </div>
+         </LazyLoad>
 
          
 
@@ -265,7 +278,9 @@ export default function Landing() {
 
          
          <div id="contact" className='relative w-full'>
-          <ContactForm />
+          <LazyLoad once>
+            <ContactForm />
+          </LazyLoad>
          </div>
       </div>
           

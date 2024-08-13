@@ -10,7 +10,7 @@ import {
 import { Link } from 'react-router-dom';
 import { PageContext } from '../../main';
 import Announcement from './NavbarAnnounce';
-import MenuButton from './MenuButton';
+import Hamburger from 'hamburger-react';
 
 
 
@@ -59,7 +59,7 @@ export default function Navbar() {
 
   const socials = [
     { name: 'LinkedIn', href: 'https://www.linkedin.com/company/medina-environmental-consulting-solutions/', icon: <FaLinkedin className='h-full w-full' />, current: false},
-    { name: 'YouTube', href: 'https://www.youtube.com', icon: <FaYoutube className=' h-full w-full'/>, current: false}
+    { name: 'YouTube', href: 'https://www.youtube.com/@TheDrVMedina', icon: <FaYoutube className=' h-full w-full'/>, current: false}
   ]
 
   function classNames(...classes) {
@@ -129,12 +129,7 @@ export default function Navbar() {
                 <DisclosureButton  onClick={togglePanel} className=" scale-105 relative inline-flex items-center justify-center p-2 ">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
-                  <MenuButton />
-                  {/* {open ? (
-                    <XMarkIcon className="block h-8 w-8" aria-hidden="true" />
-                  ) : (
-                    <img src={menu_fill} alt="Open Mobile Menu" className='h-8'></img>
-                  )} */}
+                  <Hamburger color="white" rounded toggled={open}/>
                 </DisclosureButton>
               </div>
             </div>
