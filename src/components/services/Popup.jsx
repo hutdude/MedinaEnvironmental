@@ -13,10 +13,10 @@ const Popup = ({ isOpen, onClose, children, img }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-  <div className="h-[90vmin] w-[90vmin] max-w-[1400px] max-h-[800px] relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-rounded-6 overflow-hidden">
+  <div className=" min-h-[50vh] w-[90vmin] max-w-[1400px] max-h-[800px] relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-rounded-6 ">
     
     {/* Top half - Image */}
-    <div className="absolute top-0 left-0 right-0 h-1/2 overflow-hidden">
+    <div className="relative rounded-t-rounded-6 right-0 h-1/2 overflow-hidden">
       <img
         src={imgArray[img]}
         alt="card-image backdrop" 
@@ -26,7 +26,7 @@ const Popup = ({ isOpen, onClose, children, img }) => {
     </div>
     
     {/* Bottom half - Content */}
-    <div className="relative top-1/2 left-1/2 h-1/2 transform  -translate-x-1/2 justify-start  p-6 flex flex-col">
+    <div className="relative top-1/2 left-1/2 min-h-[50%] h-fit transform  -translate-x-1/2 justify-start  p-6 flex flex-col">
       {children}
     </div>
 
