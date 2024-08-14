@@ -69,20 +69,7 @@ export default function Projects() {
         <Noise z10={true}/>
         <h3 className="text-center text-xl font-bold bg-white">sf-330</h3>
         {!loading ? <PDFViewer pdfURL={sf330[0].acf.pdf} /> : <></>}
-        {/* <object data={sf330} className="h-[800px] *:relative z-30" type="application/pdf" width="100%" height="100%">
-            <p>Alternative text - include a link <a href={sf330}>to the PDF!</a></p>
-        </object> */}
-        {/* <Document file={{
-          file: sf330
-          }} /> */}
-        {/* <div className="w-full max-w-4xl mx-auto shadow-lg rounded-lg overflow-hidden">
-        <iframe 
-          src={sf330}
-          className="w-full h-[600px] border-none"
-          title="PDF Viewer"
-        />
-      </div> */}
-        
+       
       </div>
       <div id="contact">
         <ContactForm />
